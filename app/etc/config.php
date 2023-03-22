@@ -226,7 +226,7 @@ return [
         'Magento_NewsletterGraphQl' => 1,
         'Magento_OfflinePayments' => 1,
         'Magento_SalesRule' => 1,
-        'Magento_OpenSearch' => 1,
+        'Magento_OpenSearch' => 0,
         'Magento_Sitemap' => 1,
         'Magento_PageBuilder' => 1,
         'Magento_PageBuilderAnalytics' => 1,
@@ -327,6 +327,7 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
+        'Mastering_SampleKirilModule' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Temando_ShippingRemover' => 1
