@@ -117,8 +117,8 @@ return [
     ],
     'cache_types' => [
         'config' => 1,
-        'layout' => 0,
-        'block_html' => 0,
+        'layout' => 1,
+        'block_html' => 1,
         'collections' => 1,
         'reflection' => 1,
         'db_ddl' => 1,
@@ -127,7 +127,7 @@ return [
         'customer_notification' => 1,
         'config_integration' => 1,
         'config_integration_api' => 1,
-        'full_page' => 0,
+        'full_page' => 1,
         'config_webservice' => 1,
         'translate' => 1
     ],
@@ -135,7 +135,7 @@ return [
         'localhost'
     ],
     'install' => [
-        'date' => 'Mon, 20 Mar 2023 18:51:41 +0000'
+        'date' => 'Fri, 24 Mar 2023 07:59:53 +0000'
     ],
     'system' => [
         'default' => [

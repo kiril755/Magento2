@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="mastering_sample_kiril_item" resource="default" engine="innodb" comment="Sample Items">
+    <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Item ID"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Item Name"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Item Description"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+    <index referenceId="MASTERING_SAMPLE_KIRIL_ITEM_NAME" indexType="btree">
+      <column name="name"/>
+    </index>
+  </table>
+</schema>
