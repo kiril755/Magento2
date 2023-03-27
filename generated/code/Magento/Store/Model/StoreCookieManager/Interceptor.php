@@ -17,27 +17,9 @@ class Interceptor extends \Magento\Store\Model\StoreCookieManager implements \Ma
     /**
      * {@inheritdoc}
      */
-    public function getStoreCodeFromCookie()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStoreCodeFromCookie');
-        return $pluginInfo ? $this->___callPlugins('getStoreCodeFromCookie', func_get_args(), $pluginInfo) : parent::getStoreCodeFromCookie();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setStoreCookie(\Magento\Store\Api\Data\StoreInterface $store)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setStoreCookie');
         return $pluginInfo ? $this->___callPlugins('setStoreCookie', func_get_args(), $pluginInfo) : parent::setStoreCookie($store);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function deleteStoreCookie(\Magento\Store\Api\Data\StoreInterface $store)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteStoreCookie');
-        return $pluginInfo ? $this->___callPlugins('deleteStoreCookie', func_get_args(), $pluginInfo) : parent::deleteStoreCookie($store);
     }
 }

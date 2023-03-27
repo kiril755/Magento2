@@ -17,45 +17,9 @@ class Interceptor extends \Magento\Eav\Model\AttributeSetRepository implements \
     /**
      * {@inheritdoc}
      */
-    public function save(\Magento\Eav\Api\Data\AttributeSetInterface $attributeSet)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
-        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($attributeSet);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
-        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function get($attributeSetId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($attributeSetId);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function delete(\Magento\Eav\Api\Data\AttributeSetInterface $attributeSet)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
         return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($attributeSet);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function deleteById($attributeSetId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteById');
-        return $pluginInfo ? $this->___callPlugins('deleteById', func_get_args(), $pluginInfo) : parent::deleteById($attributeSetId);
     }
 }
