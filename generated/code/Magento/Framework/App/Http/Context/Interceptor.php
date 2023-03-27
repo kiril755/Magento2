@@ -17,54 +17,9 @@ class Interceptor extends \Magento\Framework\App\Http\Context implements \Magent
     /**
      * {@inheritdoc}
      */
-    public function setValue($name, $value, $default)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setValue');
-        return $pluginInfo ? $this->___callPlugins('setValue', func_get_args(), $pluginInfo) : parent::setValue($name, $value, $default);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unsValue($name)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'unsValue');
-        return $pluginInfo ? $this->___callPlugins('unsValue', func_get_args(), $pluginInfo) : parent::unsValue($name);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getValue($name)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getValue');
-        return $pluginInfo ? $this->___callPlugins('getValue', func_get_args(), $pluginInfo) : parent::getValue($name);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getData()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getData');
-        return $pluginInfo ? $this->___callPlugins('getData', func_get_args(), $pluginInfo) : parent::getData();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getVaryString()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getVaryString');
         return $pluginInfo ? $this->___callPlugins('getVaryString', func_get_args(), $pluginInfo) : parent::getVaryString();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function toArray()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'toArray');
-        return $pluginInfo ? $this->___callPlugins('toArray', func_get_args(), $pluginInfo) : parent::toArray();
     }
 }
