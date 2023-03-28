@@ -1,0 +1,9 @@
+<?php
+    /** @var \Task\ProductCommentModule\Block\Comment $block */
+?>
+<p>helloo woooorld!</p>
+<?php if($block->getItems()): ?>
+    <p>Database contains the comment for this product.</p>
+<?php else: ?>
+    <p>Database Not contains the comment for this product.</p>
+<?php endif; ?>

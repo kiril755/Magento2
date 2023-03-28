@@ -349,6 +349,7 @@ return [
         'Mastering_SampleKirilModule' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'Task_ProductCommentModule' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];

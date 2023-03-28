@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="task_product_comment" resource="default" engine="innodb" comment="Product comment">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Comment ID"/>
+        <column xsi:type="text" name="text" nullable="false" comment="Comment text"/>
+        <column xsi:type="varchar" name="status" nullable="false" default="pending" comment="Comment text"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="index" referenceId="TASK_PRODUCT_COMMENT_TEXT" indexType="fulltext">
+            <column name="text"/>
+        </constraint>
+        <index referenceId="TASK_PRODUCT_COMMENT_STATUS" indexType="btree">
+            <column name="status"/>
+        </index>
+    </table>
+</schema>
