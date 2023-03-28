@@ -16,7 +16,7 @@ class AddItem
     public function execute() {
         $this->itemFactory->create()
             ->setName('Scheduled item')
-            ->setDesctiption('Created at ' . time())
+            ->setDescription('Created at ' . time())
             ->save();
     }
 }
