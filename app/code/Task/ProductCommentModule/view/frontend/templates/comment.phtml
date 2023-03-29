@@ -2,8 +2,24 @@
     /** @var \Task\ProductCommentModule\Block\Comment $block */
 ?>
 <p>helloo woooorld!</p>
+<div>
+    <form id="my-form" action="<?php echo $block->getUrl('task/form/submit') ?>" method="post">
+        <input type="text" name="text" id="text">
+        <button type="submit">Submit</button>
+    </form>
+</div>
 <?php if($block->getItems()): ?>
     <p>Database contains the comment for this product.</p>
+    <ul>
+        <?php foreach ($block->getItems() as $item): ?>
+            <li>
+                <p>
+                    <?php echo $item->getText(); ?>
+                </p>
+            </li>
+            <br/>
+        <?php endforeach; ?>
+    </ul>
 <?php else: ?>
     <p>Database Not contains the comment for this product.</p>
 <?php endif; ?>

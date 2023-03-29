@@ -19,8 +19,8 @@ class Comment extends Template
     }
 
 
-    /** @return \Task\ProductCommentModel\Model\Item[]  */
+    /** @return \Task\ProductCommentModule\Model\Item[]  */
     public function getItems () {
-        return $this->collectionFactory->create()->getItems();
+        return $this->collectionFactory->create()->addFieldToFilter('status', 'success');;
     }
 }

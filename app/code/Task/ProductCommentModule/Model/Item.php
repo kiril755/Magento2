@@ -8,6 +8,6 @@ class Item extends AbstractModel
 {
     protected function _construct()
     {
-        $this->_init(\Task\ProductCommentModel\Model\ResourceModel\Item::class);
+        $this->_init(\Task\ProductCommentModule\Model\ResourceModel\Item::class);
     }
 }
