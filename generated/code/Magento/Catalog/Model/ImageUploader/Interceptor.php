@@ -17,9 +17,81 @@ class Interceptor extends \Magento\Catalog\Model\ImageUploader implements \Magen
     /**
      * {@inheritdoc}
      */
+    public function setBaseTmpPath($baseTmpPath)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setBaseTmpPath');
+        return $pluginInfo ? $this->___callPlugins('setBaseTmpPath', func_get_args(), $pluginInfo) : parent::setBaseTmpPath($baseTmpPath);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setBasePath($basePath)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setBasePath');
+        return $pluginInfo ? $this->___callPlugins('setBasePath', func_get_args(), $pluginInfo) : parent::setBasePath($basePath);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setAllowedExtensions($allowedExtensions)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setAllowedExtensions');
+        return $pluginInfo ? $this->___callPlugins('setAllowedExtensions', func_get_args(), $pluginInfo) : parent::setAllowedExtensions($allowedExtensions);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBaseTmpPath()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getBaseTmpPath');
+        return $pluginInfo ? $this->___callPlugins('getBaseTmpPath', func_get_args(), $pluginInfo) : parent::getBaseTmpPath();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBasePath()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getBasePath');
+        return $pluginInfo ? $this->___callPlugins('getBasePath', func_get_args(), $pluginInfo) : parent::getBasePath();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAllowedExtensions()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAllowedExtensions');
+        return $pluginInfo ? $this->___callPlugins('getAllowedExtensions', func_get_args(), $pluginInfo) : parent::getAllowedExtensions();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFilePath($path, $imageName)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getFilePath');
+        return $pluginInfo ? $this->___callPlugins('getFilePath', func_get_args(), $pluginInfo) : parent::getFilePath($path, $imageName);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function moveFileFromTmp($imageName, $returnRelativePath = false)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'moveFileFromTmp');
         return $pluginInfo ? $this->___callPlugins('moveFileFromTmp', func_get_args(), $pluginInfo) : parent::moveFileFromTmp($imageName, $returnRelativePath);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function saveFileToTmpDir($fileId)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveFileToTmpDir');
+        return $pluginInfo ? $this->___callPlugins('saveFileToTmpDir', func_get_args(), $pluginInfo) : parent::saveFileToTmpDir($fileId);
     }
 }

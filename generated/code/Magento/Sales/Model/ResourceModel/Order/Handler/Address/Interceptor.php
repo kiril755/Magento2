@@ -17,6 +17,15 @@ class Interceptor extends \Magento\Sales\Model\ResourceModel\Order\Handler\Addre
     /**
      * {@inheritdoc}
      */
+    public function removeEmptyAddresses(\Magento\Sales\Model\Order $order)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'removeEmptyAddresses');
+        return $pluginInfo ? $this->___callPlugins('removeEmptyAddresses', func_get_args(), $pluginInfo) : parent::removeEmptyAddresses($order);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function process(\Magento\Sales\Model\Order $order)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'process');

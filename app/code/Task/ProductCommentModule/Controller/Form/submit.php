@@ -23,7 +23,7 @@ class Submit extends Action
 
         // Save form data to database
         $item = $this->itemFactory->create();
-        $item->setText('text', $inputValue);
+        $item->setText($inputValue);
         $item->save();
 
         // Return response

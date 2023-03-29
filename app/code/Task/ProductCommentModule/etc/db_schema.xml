@@ -7,9 +7,6 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
-        <constraint xsi:type="index" referenceId="TASK_PRODUCT_COMMENT_TEXT" indexType="fulltext">
-            <column name="text"/>
-        </constraint>
         <index referenceId="TASK_PRODUCT_COMMENT_STATUS" indexType="btree">
             <column name="status"/>
         </index>
