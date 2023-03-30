@@ -7,4 +7,6 @@
             </argument>
         </arguments>
     </type>
+    <preference for="Mastering\SampleKirilModule\Api\Data\ItemInterface" type="Mastering\SampleKirilModule\Model\Item"/>
+    <preference for="Mastering\SampleKirilModule\Api\ItemRepositoryInterface" type="Mastering\SampleKirilModule\Model\ItemRepository"/>
 </config>
