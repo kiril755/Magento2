@@ -27,7 +27,7 @@ class Submit extends Action
         $item->save();
 
         // Return response
-        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $resultPage->setUrl('/task/');
         return $resultPage;
     }

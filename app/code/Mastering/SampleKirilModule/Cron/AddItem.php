@@ -3,7 +3,7 @@
 namespace Mastering\SampleKirilModule\Cron;
 
 use Mastering\SampleKirilModule\Model\ItemFactory;
-use Mastering\SampleKirilModule\Model\Config
+use Mastering\SampleKirilModule\Model\Config;
 
 class AddItem
 {

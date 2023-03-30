@@ -1,25 +1,24 @@
 <?php
-    /** @var \Task\ProductCommentModule\Block\Comment $block */
+/** @var \Task\ProductCommentModule\Block\Comment $block */
 ?>
-<p>helloo woooorld!</p>
-<div>
-    <form id="my-form" action="<?php echo $block->getUrl('task/form/submit') ?>" method="post">
-        <input type="text" name="text" id="text">
-        <button type="submit">Submit</button>
-    </form>
+<div class="comment-block">
+    <div class="form-container">
+        <form class="form" id="my-form" action="<?php echo $block->getUrl('task/form/submit') ?>" method="post">
+            <input class="input" type="text" name="text" id="text">
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </div>
+    <?php if ($block->getItems()): ?>
+        <ul class="comment-list">
+            <?php foreach ($block->getItems() as $item): ?>
+                <li class="comment-item">
+                    <p class="comment">
+                        <?php echo $item->getText(); ?>
+                    </p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p class="error-message">Database Not contains the comment for this product.</p>
+    <?php endif; ?>
 </div>
-<?php if($block->getItems()): ?>
-    <p>Database contains the comment for this product.</p>
-    <ul>
-        <?php foreach ($block->getItems() as $item): ?>
-            <li>
-                <p>
-                    <?php echo $item->getText(); ?>
-                </p>
-            </li>
-            <br/>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>Database Not contains the comment for this product.</p>
-<?php endif; ?>

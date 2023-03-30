@@ -587,6 +587,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/magento/module-configurable-sample-data" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/magento/module-bundle-sample-data" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/magento/module-catalog-rule-sample-data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/generated" />
+      <excludeFolder url="file://$MODULE_DIR$/lib" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
