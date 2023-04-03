@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="task" translate="label" sortOrder="10000">
+            <label>Comment configuration</label>
+        </tab>
+        <section id="task" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Task</label>
+            <tab>task</tab>
+            <resource>Task_AdvancedCommentManagement::task</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="module_enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="success" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Status: success</label>
+                </field>
+                <field id="pending" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Status: pending</label>
+                </field>
+                <field id="reject" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Status: reject</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

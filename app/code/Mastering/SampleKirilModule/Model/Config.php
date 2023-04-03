@@ -1,6 +1,6 @@
 <?php
 
-namespace Mastering\SampleKirilModule\model;
+namespace Mastering\SampleKirilModule\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
@@ -9,7 +9,7 @@ class Config
     const XML_PATH_ENABLED = 'mastering/general/enabled';
     private $config;
 
-    public function __constract(ScopeConfigInterface $config)
+    public function __construct(ScopeConfigInterface $config)
     {
         $this->config = $config;
     }
