@@ -2,23 +2,33 @@
 namespace Task\AdvancedCommentManagement\Model;
 
 use Magento\Framework\App\Request\Http;
-use Magento\Framework\Exception\AuthorizationException;
 use Task\AdvancedCommentManagement\Api\AddCommentAdminInterface;
+use Task\ProductCommentModule\Model\ItemFactory;
+
+use Magento\Framework\AuthorizationInterface;
 
 class AddCommentAdmin implements AddCommentAdminInterface
 {
-    protected $request;
+    protected $authorization;
 
-    /**
-     * @param Http $request
-     */
-    public function __construct(Http $request)
+    protected $itemFactory;
+    public function __construct(ItemFactory $itemFactory, AuthorizationInterface $authorization)
     {
-        $this->request = $request;
+        $this->itemFactory = $itemFactory;
+        $this->authorization = $authorization;
     }
 
     public function execute($text)
     {
-        return  $text;
+        if($this->authorization->isAllowed('Magento_Backend::admin')) {
+            $item = $this->itemFactory->create();
+            $item->setText($text);
+            $item->setStatus('success');
+            $item->save();
+
+            return 'The comment with this text: ' . $text . ', successfully saved, with success status!';
+        } else {
+            return "you dont have right permission!";
+        }
     }
 }

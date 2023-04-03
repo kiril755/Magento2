@@ -1,17 +1,17 @@
 <?php
-namespace Magento\User\Controller\Adminhtml\User\Role\EditRole;
+namespace Magento\Backend\Controller\Adminhtml\Auth\Logout;
 
 /**
- * Interceptor class for @see \Magento\User\Controller\Adminhtml\User\Role\EditRole
+ * Interceptor class for @see \Magento\Backend\Controller\Adminhtml\Auth\Logout
  */
-class Interceptor extends \Magento\User\Controller\Adminhtml\User\Role\EditRole implements \Magento\Framework\Interception\InterceptorInterface
+class Interceptor extends \Magento\Backend\Controller\Adminhtml\Auth\Logout implements \Magento\Framework\Interception\InterceptorInterface
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Magento\Backend\App\Action\Context $context, \Magento\Framework\Registry $coreRegistry, \Magento\Authorization\Model\RoleFactory $roleFactory, \Magento\User\Model\UserFactory $userFactory, \Magento\Authorization\Model\RulesFactory $rulesFactory, \Magento\Backend\Model\Auth\Session $authSession, \Magento\Framework\Filter\FilterManager $filterManager)
+    public function __construct(\Magento\Backend\App\Action\Context $context)
     {
         $this->___init();
-        parent::__construct($context, $coreRegistry, $roleFactory, $userFactory, $rulesFactory, $authSession, $filterManager);
+        parent::__construct($context);
     }
 
     /**

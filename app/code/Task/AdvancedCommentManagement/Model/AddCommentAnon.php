@@ -6,13 +6,8 @@ use Task\ProductCommentModule\Model\ItemFactory;
 
 class AddCommentAnon implements AddCommentAnonInterface
 {
-    protected $request;
-
     protected $itemFactory;
 
-    /**
-     * @param Http $request
-     */
     public function __construct(ItemFactory $itemFactory)
     {
         $this->itemFactory = $itemFactory;
