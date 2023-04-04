@@ -14,10 +14,18 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         Logger $logger,
         FetchStrategy $fetchStrategy,
         EventManager $eventManager,
-        $mainTable = 'mastering_sample_kiril_item',
-        $resourceModel = 'Mastering\SampleKirilModule\Model\ResourceModel\Item'
+                      $mainTable = 'mastering_sample_kiril_item',
+                      $resourceModel = 'Mastering\SampleKirilModule\Model\ResourceModel\Item'
     ) {
-
-        }
+        parent::__construct(
+            $entityFactory,
+            $logger,
+            $fetchStrategy,
+            $eventManager,
+            $mainTable,
+            $resourceModel
+        );
+    }
 }
+
 
