@@ -29,14 +29,7 @@
             </argument>
         </argument>
     </dataSource>
-    <listingToolbar name="listing_top">
-        <bookmark name="bookmarks"/>
-        <columnsControls name="columns_controls"/>
-        <exportButton name="export_button"/>
-        <filterSearch name="fulltext"/>
-        <filters name="listing_filters"/>
-        <paging name="listing_paging"/>
-    </listingToolbar>
+
     <columns name="mastering_items_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">

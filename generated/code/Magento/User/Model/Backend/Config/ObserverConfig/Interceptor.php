@@ -17,6 +17,24 @@ class Interceptor extends \Magento\User\Model\Backend\Config\ObserverConfig impl
     /**
      * {@inheritdoc}
      */
+    public function _isLatestPasswordExpired($latestPassword)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, '_isLatestPasswordExpired');
+        return $pluginInfo ? $this->___callPlugins('_isLatestPasswordExpired', func_get_args(), $pluginInfo) : parent::_isLatestPasswordExpired($latestPassword);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAdminLockThreshold()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAdminLockThreshold');
+        return $pluginInfo ? $this->___callPlugins('getAdminLockThreshold', func_get_args(), $pluginInfo) : parent::getAdminLockThreshold();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isPasswordChangeForced()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isPasswordChangeForced');
@@ -30,5 +48,14 @@ class Interceptor extends \Magento\User\Model\Backend\Config\ObserverConfig impl
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAdminPasswordLifetime');
         return $pluginInfo ? $this->___callPlugins('getAdminPasswordLifetime', func_get_args(), $pluginInfo) : parent::getAdminPasswordLifetime();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMaxFailures()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getMaxFailures');
+        return $pluginInfo ? $this->___callPlugins('getMaxFailures', func_get_args(), $pluginInfo) : parent::getMaxFailures();
     }
 }

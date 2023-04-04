@@ -17,6 +17,33 @@ class Interceptor extends \Magento\CatalogInventory\Model\StockRegistry implemen
     /**
      * {@inheritdoc}
      */
+    public function getStock($scopeId = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStock');
+        return $pluginInfo ? $this->___callPlugins('getStock', func_get_args(), $pluginInfo) : parent::getStock($scopeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStockItem($productId, $scopeId = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStockItem');
+        return $pluginInfo ? $this->___callPlugins('getStockItem', func_get_args(), $pluginInfo) : parent::getStockItem($productId, $scopeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStockItemBySku($productSku, $scopeId = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStockItemBySku');
+        return $pluginInfo ? $this->___callPlugins('getStockItemBySku', func_get_args(), $pluginInfo) : parent::getStockItemBySku($productSku, $scopeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getStockStatus($productId, $scopeId = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStockStatus');
@@ -48,6 +75,15 @@ class Interceptor extends \Magento\CatalogInventory\Model\StockRegistry implemen
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductStockStatusBySku');
         return $pluginInfo ? $this->___callPlugins('getProductStockStatusBySku', func_get_args(), $pluginInfo) : parent::getProductStockStatusBySku($productSku, $scopeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLowStockItems($scopeId, $qty, $currentPage = 1, $pageSize = 0)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getLowStockItems');
+        return $pluginInfo ? $this->___callPlugins('getLowStockItems', func_get_args(), $pluginInfo) : parent::getLowStockItems($scopeId, $qty, $currentPage, $pageSize);
     }
 
     /**

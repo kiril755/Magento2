@@ -11,4 +11,7 @@
       <column name="name"/>
     </index>
   </table>
+    <table name="sales_order_grid" resource="default" engine="innodb">
+        <column xsi:type="decimal" name="base_tax_amount" nullable="true" comment="Base Tax Amount"/>
+    </table>
 </schema>

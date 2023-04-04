@@ -3,6 +3,7 @@
     <module name="Mastering_SampleKirilModule" setup_version="1.0.1">
         <sequence>
             <module name="Magento_Catalog"/>
+            <module name="Magento_Sales"/>
         </sequence>
     </module>
 </config>

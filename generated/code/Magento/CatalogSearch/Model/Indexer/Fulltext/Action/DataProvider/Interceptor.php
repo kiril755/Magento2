@@ -17,6 +17,51 @@ class Interceptor extends \Magento\CatalogSearch\Model\Indexer\Fulltext\Action\D
     /**
      * {@inheritdoc}
      */
+    public function getSearchableProducts($storeId, array $staticFields, $productIds = null, $lastProductId = 0, $batch = 1000)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getSearchableProducts');
+        return $pluginInfo ? $this->___callPlugins('getSearchableProducts', func_get_args(), $pluginInfo) : parent::getSearchableProducts($storeId, $staticFields, $productIds, $lastProductId, $batch);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSearchableAttributes($backendType = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getSearchableAttributes');
+        return $pluginInfo ? $this->___callPlugins('getSearchableAttributes', func_get_args(), $pluginInfo) : parent::getSearchableAttributes($backendType);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSearchableAttribute($attribute)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getSearchableAttribute');
+        return $pluginInfo ? $this->___callPlugins('getSearchableAttribute', func_get_args(), $pluginInfo) : parent::getSearchableAttribute($attribute);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProductAttributes($storeId, array $productIds, array $attributeTypes)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductAttributes');
+        return $pluginInfo ? $this->___callPlugins('getProductAttributes', func_get_args(), $pluginInfo) : parent::getProductAttributes($storeId, $productIds, $attributeTypes);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProductChildIds($productId, $typeId)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getProductChildIds');
+        return $pluginInfo ? $this->___callPlugins('getProductChildIds', func_get_args(), $pluginInfo) : parent::getProductChildIds($productId, $typeId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function prepareProductIndex($indexData, $productData, $storeId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'prepareProductIndex');

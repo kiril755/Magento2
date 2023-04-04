@@ -26,9 +26,54 @@ class Interceptor extends \Magento\CatalogInventory\Model\StockStateProvider imp
     /**
      * {@inheritdoc}
      */
+    public function verifyNotification(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'verifyNotification');
+        return $pluginInfo ? $this->___callPlugins('verifyNotification', func_get_args(), $pluginInfo) : parent::verifyNotification($stockItem);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function checkQuoteItemQty(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem, $qty, $summaryQty, $origQty = 0)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'checkQuoteItemQty');
         return $pluginInfo ? $this->___callPlugins('checkQuoteItemQty', func_get_args(), $pluginInfo) : parent::checkQuoteItemQty($stockItem, $qty, $summaryQty, $origQty);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function checkQty(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem, $qty)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'checkQty');
+        return $pluginInfo ? $this->___callPlugins('checkQty', func_get_args(), $pluginInfo) : parent::checkQty($stockItem, $qty);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function suggestQty(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem, $qty)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'suggestQty');
+        return $pluginInfo ? $this->___callPlugins('suggestQty', func_get_args(), $pluginInfo) : parent::suggestQty($stockItem, $qty);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function checkQtyIncrements(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem, $qty)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'checkQtyIncrements');
+        return $pluginInfo ? $this->___callPlugins('checkQtyIncrements', func_get_args(), $pluginInfo) : parent::checkQtyIncrements($stockItem, $qty);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStockQty(\Magento\CatalogInventory\Api\Data\StockItemInterface $stockItem)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStockQty');
+        return $pluginInfo ? $this->___callPlugins('getStockQty', func_get_args(), $pluginInfo) : parent::getStockQty($stockItem);
     }
 }
