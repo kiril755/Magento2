@@ -49,40 +49,4 @@ class Interceptor extends \Magento\Integration\Model\IntegrationService implemen
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
         return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($integrationId);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findByName($name)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'findByName');
-        return $pluginInfo ? $this->___callPlugins('findByName', func_get_args(), $pluginInfo) : parent::findByName($name);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findByConsumerId($consumerId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'findByConsumerId');
-        return $pluginInfo ? $this->___callPlugins('findByConsumerId', func_get_args(), $pluginInfo) : parent::findByConsumerId($consumerId);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findActiveIntegrationByConsumerId($consumerId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'findActiveIntegrationByConsumerId');
-        return $pluginInfo ? $this->___callPlugins('findActiveIntegrationByConsumerId', func_get_args(), $pluginInfo) : parent::findActiveIntegrationByConsumerId($consumerId);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getSelectedResources($integrationId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getSelectedResources');
-        return $pluginInfo ? $this->___callPlugins('getSelectedResources', func_get_args(), $pluginInfo) : parent::getSelectedResources($integrationId);
-    }
 }

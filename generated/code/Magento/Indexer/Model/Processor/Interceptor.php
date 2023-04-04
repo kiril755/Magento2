@@ -26,27 +26,9 @@ class Interceptor extends \Magento\Indexer\Model\Processor implements \Magento\F
     /**
      * {@inheritdoc}
      */
-    public function reindexAll()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'reindexAll');
-        return $pluginInfo ? $this->___callPlugins('reindexAll', func_get_args(), $pluginInfo) : parent::reindexAll();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function updateMview()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'updateMview');
         return $pluginInfo ? $this->___callPlugins('updateMview', func_get_args(), $pluginInfo) : parent::updateMview();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function clearChangelog()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'clearChangelog');
-        return $pluginInfo ? $this->___callPlugins('clearChangelog', func_get_args(), $pluginInfo) : parent::clearChangelog();
     }
 }

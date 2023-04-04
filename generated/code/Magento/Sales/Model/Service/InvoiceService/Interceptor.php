@@ -22,40 +22,4 @@ class Interceptor extends \Magento\Sales\Model\Service\InvoiceService implements
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setCapture');
         return $pluginInfo ? $this->___callPlugins('setCapture', func_get_args(), $pluginInfo) : parent::setCapture($id);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCommentsList($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCommentsList');
-        return $pluginInfo ? $this->___callPlugins('getCommentsList', func_get_args(), $pluginInfo) : parent::getCommentsList($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function notify($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'notify');
-        return $pluginInfo ? $this->___callPlugins('notify', func_get_args(), $pluginInfo) : parent::notify($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setVoid($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setVoid');
-        return $pluginInfo ? $this->___callPlugins('setVoid', func_get_args(), $pluginInfo) : parent::setVoid($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function prepareInvoice(\Magento\Sales\Model\Order $order, array $orderItemsQtyToInvoice = []) : \Magento\Sales\Api\Data\InvoiceInterface
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'prepareInvoice');
-        return $pluginInfo ? $this->___callPlugins('prepareInvoice', func_get_args(), $pluginInfo) : parent::prepareInvoice($order, $orderItemsQtyToInvoice);
-    }
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
@@ -6,6 +6,14 @@
             <item name="deps" xsi:type="string">mastering_items_grid.mastering_items_grid_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">mastering_items_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">Add</item>
+                <item name="label" xsi:type="string" translate="true">Add item</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/item/new</item>
+            </item>
+        </item>
     </argument>
     <dataSource name="mastering_items_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -34,7 +42,7 @@
             <item name="config" xsi:type="array">
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_column</item>
+                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">view</item>
@@ -69,4 +77,3 @@
         </column>
     </columns>
 </listing>
-

@@ -12,7 +12,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="mastering_items_grid_data_source" xsi:type="object">Mastering\SampleKirilModule\Model\ResourceModel\Item\Grid\Collection</item>
+                <item name="mastering_items_grid_data_source" xsi:type="string">Mastering\SampleKirilModule\Model\ResourceModel\Item\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

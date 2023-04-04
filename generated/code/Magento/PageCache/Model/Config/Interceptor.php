@@ -17,33 +17,6 @@ class Interceptor extends \Magento\PageCache\Model\Config implements \Magento\Fr
     /**
      * {@inheritdoc}
      */
-    public function getType()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getType');
-        return $pluginInfo ? $this->___callPlugins('getType', func_get_args(), $pluginInfo) : parent::getType();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getTtl()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getTtl');
-        return $pluginInfo ? $this->___callPlugins('getTtl', func_get_args(), $pluginInfo) : parent::getTtl();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getVclFile($vclTemplatePath)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getVclFile');
-        return $pluginInfo ? $this->___callPlugins('getVclFile', func_get_args(), $pluginInfo) : parent::getVclFile($vclTemplatePath);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function isEnabled()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isEnabled');

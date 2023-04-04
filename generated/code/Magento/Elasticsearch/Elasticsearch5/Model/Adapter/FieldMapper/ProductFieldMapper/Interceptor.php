@@ -17,15 +17,6 @@ class Interceptor extends \Magento\Elasticsearch\Elasticsearch5\Model\Adapter\Fi
     /**
      * {@inheritdoc}
      */
-    public function getFieldName($attributeCode, $context = [])
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getFieldName');
-        return $pluginInfo ? $this->___callPlugins('getFieldName', func_get_args(), $pluginInfo) : parent::getFieldName($attributeCode, $context);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getAllAttributesTypes($context = [])
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAllAttributesTypes');
