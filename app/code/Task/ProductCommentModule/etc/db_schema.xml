@@ -2,8 +2,10 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="task_product_comment" resource="default" engine="innodb" comment="Product comment">
         <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Comment ID"/>
+        <column xsi:type="varchar" name="nickname" nullable="false" comment="Nickname"/>
+        <column xsi:type="varchar" name="email" nullable="false" comment="Email"/>
         <column xsi:type="text" name="text" nullable="false" comment="Comment text"/>
-        <column xsi:type="varchar" name="status" nullable="false" default="pending" comment="Comment text"/>
+        <column xsi:type="varchar" name="status" nullable="false" default="pending" comment="Comment status"/>
         <column xsi:type="timestamp" name="create_time" nullable="false" default="CURRENT_TIMESTAMP" comment="Create time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
