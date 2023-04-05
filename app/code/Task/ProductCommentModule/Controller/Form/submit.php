@@ -19,11 +19,15 @@ class Submit extends Action
 
     public function execute()
     {
-        $inputValue = $this->getRequest()->getParam('text');
+        $textValue = $this->getRequest()->getParam('text');
+        $nicknameValue = $this->getRequest()->getParam('nickname');
+        $emailValue = $this->getRequest()->getParam('email');
 
         // Save form data to database
         $item = $this->itemFactory->create();
-        $item->setText($inputValue);
+        $item->setNickname($nicknameValue);
+        $item->setEmail($emailValue);
+        $item->setText($textValue);
         $item->save();
 
         // Return response
