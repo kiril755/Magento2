@@ -13,9 +13,14 @@ class AddCommentAnon implements AddCommentAnonInterface
         $this->itemFactory = $itemFactory;
     }
 
-    public function execute($text)
+    public function execute($text, $nickname, $email)
     {
+//        $nicknameValue = $this->getRequest()->getParam('nickname');
+//        $emailValue = $this->getRequest()->getParam('email');
+
         $item = $this->itemFactory->create();
+        $item->setNickname($nickname);
+        $item->setEmail($email);
         $item->setText($text);
         $item->save();
 

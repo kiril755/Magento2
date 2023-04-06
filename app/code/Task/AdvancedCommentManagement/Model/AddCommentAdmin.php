@@ -18,10 +18,12 @@ class AddCommentAdmin implements AddCommentAdminInterface
         $this->authorization = $authorization;
     }
 
-    public function execute($text)
+    public function execute($text, $nickname, $email)
     {
         if($this->authorization->isAllowed('Magento_Backend::admin')) {
             $item = $this->itemFactory->create();
+            $item->setNickname($nickname);
+            $item->setEmail($email);
             $item->setText($text);
             $item->setStatus('success');
             $item->save();
