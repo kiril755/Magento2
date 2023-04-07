@@ -1,6 +1,6 @@
 <?php
 
-namespace Task\ProductCommentModule\Controller\Adminhtml\Index;
+namespace Task\AdminManageComment\Controller\Adminhtml\Success;
 
 use Magento\Framework\Controller\ResultFactory;
 
