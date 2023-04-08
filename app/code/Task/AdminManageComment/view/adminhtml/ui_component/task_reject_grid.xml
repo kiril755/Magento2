@@ -6,14 +6,7 @@
             <item name="deps" xsi:type="string">task_reject_grid.task_reject_grid_data_source</item>
         </item>
         <item name="spinner" xsi:type="string">task_reject_columns</item>
-        <item name="buttons" xsi:type="array">
-            <item name="save" xsi:type="array">
-                <item name="name" xsi:type="string">Add</item>
-                <item name="label" xsi:type="string" translate="true">Add item</item>
-                <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">*/item/new</item>
-            </item>
-        </item>
+
     </argument>
     <dataSource name="task_reject_grid_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -23,11 +16,15 @@
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
                     <item name="filter_url_params" xsi:type="array">
                         <item name="status" xsi:type="string">reject</item>
                     </item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+
                 </item>
             </argument>
         </argument>
@@ -36,16 +33,28 @@
     <columns name="task_reject_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="childDefaults" xsi:type="array">
-                    <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">task_reject_grid.task_reject_grid.task_reject_columns.actions</item>
-                        <item name="target" xsi:type="string">applyAction</item>
-                        <item name="params" xsi:type="array">
-                            <item name="0" xsi:type="string">view</item>
-                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
-                        </item>
+
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">task_reject_grid.task_reject_grid.task_reject_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" xsi:type="url" path="task/edit/inlineEdit"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
                     </item>
                 </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">task_reject_grid.task_reject_grid.task_reject_columns_editor</item>
+                        <item name="target" xsi:type="string">startEdit</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                            <item name="1" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+
+                </item>
+
             </item>
         </argument>
         <selectionsColumn name="ids">
@@ -58,8 +67,15 @@
         <column name="nickname">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Nickname</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
                 </item>
             </argument>
         </column>
@@ -74,6 +90,12 @@
         <column name="text">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">text</item>
                 </item>
@@ -81,9 +103,17 @@
         </column>
         <column name="status">
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Task\AdminManageComment\Ui\Status</item>
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
+                    <item name="filter" xsi:type="string">select</item>
                     <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">false</item>
+                        </item>
+                    </item>
                 </item>
             </argument>
         </column>
@@ -95,5 +125,6 @@
                 </item>
             </argument>
         </column>
+
     </columns>
 </listing>

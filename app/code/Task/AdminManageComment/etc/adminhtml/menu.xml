@@ -5,6 +5,14 @@
              module="Task_AdminManageComment"
              sortOrder="20"
              resource="Task_AdminManageComment::comment"/>
+        <add id="Task_AdminManageComment::comment_all"
+             title="All comments"
+             module="Task_AdminManageComment"
+             sortOrder="1"
+             action="task"
+             resource="Task_AdminManageComment::comment_all"
+             parent="Task_AdminManageComment::comment"
+        />
         <add id="Task_AdminManageComment::comment_success"
              title="Success comments"
              module="Task_AdminManageComment"

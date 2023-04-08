@@ -26,15 +26,6 @@ class Interceptor extends \Magento\Customer\Model\ResourceModel\CustomerReposito
     /**
      * {@inheritdoc}
      */
-    public function get($email, $websiteId = null)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($email, $websiteId);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getById($customerId)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getById');
