@@ -32,7 +32,7 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="Mastering\SampleKirilModule\Console\Command\AddItem">
+    <type name="Mastering\SampleKirilModule\Observer\Logger">
         <arguments>
             <argument name="logger" xsi:type="object">MasteringLogger</argument>
         </arguments>

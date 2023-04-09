@@ -8,10 +8,10 @@ class Interceptor extends \Mastering\SampleKirilModule\Console\Command\AddItem i
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Mastering\SampleKirilModule\Model\ItemFactory $itemFactory, \Psr\Log\LoggerInterface $logger)
+    public function __construct(\Mastering\SampleKirilModule\Model\ItemFactory $itemFactory, \Magento\Framework\Event\ManagerInterface $eventManager)
     {
         $this->___init();
-        parent::__construct($itemFactory, $logger);
+        parent::__construct($itemFactory, $eventManager);
     }
 
     /**
