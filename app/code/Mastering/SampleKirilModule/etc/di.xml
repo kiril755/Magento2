@@ -37,4 +37,7 @@
             <argument name="logger" xsi:type="object">MasteringLogger</argument>
         </arguments>
     </type>
+    <type name="Mastering\SampleKirilModule\Console\Command\AddItem">
+        <plugin name="console_logging" type="Mastering\SampleKirilModule\Plugin\Logger"/>
+    </type>
 </config>

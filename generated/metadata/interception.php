@@ -18706,6 +18706,7 @@
   'Mastering\\SampleKirilModule\\Model\\ResourceModel\\Item\\Grid\\Collection' => true,
   'Mastering\\SampleKirilModule\\Model\\ResourceModel\\Item\\Grid\\Collection\\Interceptor' => false,
   'Mastering\\SampleKirilModule\\Observer\\Logger' => false,
+  'Mastering\\SampleKirilModule\\Plugin\\Logger' => false,
   'Mastering\\SampleKirilModule\\Setup\\InstallData' => false,
   'Mastering\\SampleKirilModule\\Setup\\InstallSchema' => false,
   'Mastering\\SampleKirilModule\\Setup\\UpgradeData' => false,
