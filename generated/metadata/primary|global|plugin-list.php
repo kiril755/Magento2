@@ -3877,6 +3877,7 @@
     'Magento\\WebapiAsync\\Controller\\Rest\\VirtualType\\AsynchronousBulkSchemaRequestProcessor' => NULL,
     'Magento\\Catalog\\Block\\Product\\Context' => NULL,
     'Magento\\Wishlist\\Block\\Context' => NULL,
+    'MasteringLogger' => NULL,
     'Magento\\Framework\\ForeignKey\\Migration\\TableNameArrayIterator' => NULL,
     'OmsTableNameArrayIterator' => NULL,
     'Magento\\Payment\\Model\\SaleOperationInterface' => NULL,

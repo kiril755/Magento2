@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Mastering\SampleKirilModule\Model\ItemFactory;
 use Magento\Framework\Console\Cli;
+use Psr\Log\LoggerInterface;
 
 class AddItem extends Command
 {
@@ -16,9 +17,12 @@ class AddItem extends Command
 
     private $itemFactory;
 
-    public function __construct(ItemFactory $itemFactory)
+    private $logger;
+
+    public function __construct(ItemFactory $itemFactory, LoggerInterface $logger)
     {
         $this->itemFactory = $itemFactory;
+        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -40,6 +44,7 @@ class AddItem extends Command
         $item->setIsObjectNew(true);
         $item->save();
 
+        $this->logger->debug('Item was created!');
         return Cli::RETURN_SUCCESS;
     }
 }
