@@ -35,12 +35,14 @@ class Comment extends Template
             $name = $customerSession->getCustomerData()->getFirstname();
             $email = $customerSession->getCustomerData()->getEmail();
             return $userData = ['email' => $email, 'name' => $name];
+        } else {
+            return '';
         }
     }
 
     /** @return \Task\ProductCommentModule\Model\Item[]  */
     public function getItems () {
-        
+
         return $this->collectionFactory->create()->addFieldToFilter('status', 'success');
 
     }
