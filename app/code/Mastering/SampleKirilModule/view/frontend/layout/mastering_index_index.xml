@@ -2,7 +2,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block name="mastering_hello" class="Mastering\SampleKirilModule\Block\Hello" template="hello.phtml"/>
+            <block name="mastering_hello" class="Mastering\SampleKirilModule\Block\Hello" template="hello.phtml">
+                <arguments>
+                    <argument name="label" xsi:type="string">The label</argument>
+                </arguments>
+            </block>
         </referenceContainer>
+        <referenceBlock name="form.subscribe" remove="true"/>
     </body>
 </page>
