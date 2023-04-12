@@ -1,0 +1,13 @@
+<!-- task_comment.phtml -->
+<div class="block">
+    <div class="block-title">
+        <strong>Comments</strong>
+    </div>
+    <div class="block-content">
+        <ul class="comment-list" data-bind="foreach: comments">
+            <li class="comment">
+                <div class="comment-text" data-bind="text: $data"></div>
+            </li>
+        </ul>
+    </div>
+</div>

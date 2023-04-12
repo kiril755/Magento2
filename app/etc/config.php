@@ -346,12 +346,13 @@ return [
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
         'Magento_WishlistSampleData' => 1,
-        'Mastering_SampleKirilModule' => 1,
+        'Mastering_SampleKirilModule' => 0,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Task_ProductCommentModule' => 1,
         'Task_AdvancedCommentManagement' => 1,
         'Task_AdminManageComment' => 1,
+        'Task_CheckoutCommentModule' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];

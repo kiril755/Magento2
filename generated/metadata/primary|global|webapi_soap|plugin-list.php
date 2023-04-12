@@ -2855,14 +2855,6 @@
         'instance' => 'Magento\\Wishlist\\Controller\\Index\\Plugin',
       ),
     ),
-    'Mastering\\SampleKirilModule\\Console\\Command\\AddItem' => 
-    array (
-      'console_logging' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Mastering\\SampleKirilModule\\Plugin\\Logger',
-      ),
-    ),
     'Magento\\Framework\\View\\Asset\\Minification' => 
     array (
       'braintreeExcludeFromMinification' => 
@@ -6786,19 +6778,6 @@
         'instance' => 'Magento\\Wishlist\\Controller\\Index\\Plugin',
       ),
     ),
-    'Mastering\\SampleKirilModule\\Console\\Command\\AddItem' => 
-    array (
-      'newrelic-describe-commands' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\NewRelicReporting\\Plugin\\CommandPlugin',
-      ),
-      'console_logging' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Mastering\\SampleKirilModule\\Plugin\\Logger',
-      ),
-    ),
     'Magento\\Framework\\View\\Asset\\Minification' => 
     array (
       'braintreeExcludeFromMinification' => 
@@ -10032,19 +10011,6 @@
       1 => 
       array (
         0 => 'authentication',
-      ),
-    ),
-    'Mastering\\SampleKirilModule\\Console\\Command\\AddItem_run___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'newrelic-describe-commands',
-        1 => 'console_logging',
-      ),
-      2 => 'console_logging',
-      4 => 
-      array (
-        0 => 'console_logging',
       ),
     ),
     'Magento\\Framework\\View\\Asset\\Minification_getExcludes___self' => 
