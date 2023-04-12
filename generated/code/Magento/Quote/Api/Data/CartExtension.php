@@ -23,4 +23,40 @@ class CartExtension extends \Magento\Framework\Api\AbstractSimpleObject implemen
         $this->setData('shipping_assignments', $shippingAssignments);
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getWishesField()
+    {
+        return $this->_get('wishes_field');
+    }
+
+    /**
+     * @param string $wishesField
+     * @return $this
+     */
+    public function setWishesField($wishesField)
+    {
+        $this->setData('wishes_field', $wishesField);
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommentField()
+    {
+        return $this->_get('comment_field');
+    }
+
+    /**
+     * @param string $commentField
+     * @return $this
+     */
+    public function setCommentField($commentField)
+    {
+        $this->setData('comment_field', $commentField);
+        return $this;
+    }
 }

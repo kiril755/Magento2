@@ -22,4 +22,40 @@ class Interceptor extends \Magento\Checkout\Model\DefaultConfigProvider implemen
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getConfig');
         return $pluginInfo ? $this->___callPlugins('getConfig', func_get_args(), $pluginInfo) : parent::getConfig();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRegisterUrl()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getRegisterUrl');
+        return $pluginInfo ? $this->___callPlugins('getRegisterUrl', func_get_args(), $pluginInfo) : parent::getRegisterUrl();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCheckoutUrl()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCheckoutUrl');
+        return $pluginInfo ? $this->___callPlugins('getCheckoutUrl', func_get_args(), $pluginInfo) : parent::getCheckoutUrl();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function pageNotFoundUrl()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'pageNotFoundUrl');
+        return $pluginInfo ? $this->___callPlugins('pageNotFoundUrl', func_get_args(), $pluginInfo) : parent::pageNotFoundUrl();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDefaultSuccessPageUrl()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getDefaultSuccessPageUrl');
+        return $pluginInfo ? $this->___callPlugins('getDefaultSuccessPageUrl', func_get_args(), $pluginInfo) : parent::getDefaultSuccessPageUrl();
+    }
 }

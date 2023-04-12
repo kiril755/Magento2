@@ -17,9 +17,36 @@ class Interceptor extends \Magento\Catalog\Helper\Product\Configuration implemen
     /**
      * {@inheritdoc}
      */
+    public function getCustomOptions(\Magento\Catalog\Model\Product\Configuration\Item\ItemInterface $item)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCustomOptions');
+        return $pluginInfo ? $this->___callPlugins('getCustomOptions', func_get_args(), $pluginInfo) : parent::getCustomOptions($item);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getOptions(\Magento\Catalog\Model\Product\Configuration\Item\ItemInterface $item)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getOptions');
         return $pluginInfo ? $this->___callPlugins('getOptions', func_get_args(), $pluginInfo) : parent::getOptions($item);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormattedOptionValue($optionValue, $params = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getFormattedOptionValue');
+        return $pluginInfo ? $this->___callPlugins('getFormattedOptionValue', func_get_args(), $pluginInfo) : parent::getFormattedOptionValue($optionValue, $params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isModuleOutputEnabled($moduleName = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isModuleOutputEnabled');
+        return $pluginInfo ? $this->___callPlugins('isModuleOutputEnabled', func_get_args(), $pluginInfo) : parent::isModuleOutputEnabled($moduleName);
     }
 }

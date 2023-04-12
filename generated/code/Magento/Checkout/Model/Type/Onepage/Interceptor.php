@@ -17,9 +17,108 @@ class Interceptor extends \Magento\Checkout\Model\Type\Onepage implements \Magen
     /**
      * {@inheritdoc}
      */
+    public function getCheckout()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCheckout');
+        return $pluginInfo ? $this->___callPlugins('getCheckout', func_get_args(), $pluginInfo) : parent::getCheckout();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getQuote()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getQuote');
+        return $pluginInfo ? $this->___callPlugins('getQuote', func_get_args(), $pluginInfo) : parent::getQuote();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setQuote(\Magento\Quote\Model\Quote $quote)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setQuote');
+        return $pluginInfo ? $this->___callPlugins('setQuote', func_get_args(), $pluginInfo) : parent::setQuote($quote);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCustomerSession()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCustomerSession');
+        return $pluginInfo ? $this->___callPlugins('getCustomerSession', func_get_args(), $pluginInfo) : parent::getCustomerSession();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function initCheckout()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'initCheckout');
+        return $pluginInfo ? $this->___callPlugins('initCheckout', func_get_args(), $pluginInfo) : parent::initCheckout();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCheckoutMethod()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCheckoutMethod');
+        return $pluginInfo ? $this->___callPlugins('getCheckoutMethod', func_get_args(), $pluginInfo) : parent::getCheckoutMethod();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function saveCheckoutMethod($method)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveCheckoutMethod');
+        return $pluginInfo ? $this->___callPlugins('saveCheckoutMethod', func_get_args(), $pluginInfo) : parent::saveCheckoutMethod($method);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function saveShipping($data, $customerAddressId)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveShipping');
+        return $pluginInfo ? $this->___callPlugins('saveShipping', func_get_args(), $pluginInfo) : parent::saveShipping($data, $customerAddressId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function saveShippingMethod($shippingMethod)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveShippingMethod');
         return $pluginInfo ? $this->___callPlugins('saveShippingMethod', func_get_args(), $pluginInfo) : parent::saveShippingMethod($shippingMethod);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function savePayment($data)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'savePayment');
+        return $pluginInfo ? $this->___callPlugins('savePayment', func_get_args(), $pluginInfo) : parent::savePayment($data);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function saveOrder()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'saveOrder');
+        return $pluginInfo ? $this->___callPlugins('saveOrder', func_get_args(), $pluginInfo) : parent::saveOrder();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLastOrderId()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getLastOrderId');
+        return $pluginInfo ? $this->___callPlugins('getLastOrderId', func_get_args(), $pluginInfo) : parent::getLastOrderId();
     }
 }

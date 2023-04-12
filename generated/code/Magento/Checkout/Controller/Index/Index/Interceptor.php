@@ -31,4 +31,40 @@ class Interceptor extends \Magento\Checkout\Controller\Index\Index implements \M
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'dispatch');
         return $pluginInfo ? $this->___callPlugins('dispatch', func_get_args(), $pluginInfo) : parent::dispatch($request);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOnepage()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getOnepage');
+        return $pluginInfo ? $this->___callPlugins('getOnepage', func_get_args(), $pluginInfo) : parent::getOnepage();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getActionFlag()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getActionFlag');
+        return $pluginInfo ? $this->___callPlugins('getActionFlag', func_get_args(), $pluginInfo) : parent::getActionFlag();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRequest()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getRequest');
+        return $pluginInfo ? $this->___callPlugins('getRequest', func_get_args(), $pluginInfo) : parent::getRequest();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getResponse()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getResponse');
+        return $pluginInfo ? $this->___callPlugins('getResponse', func_get_args(), $pluginInfo) : parent::getResponse();
+    }
 }

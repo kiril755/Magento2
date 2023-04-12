@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote">
+        <column xsi:type="varchar" name="wishes_field" nullable="true" comment="Wishes field" />
+        <column xsi:type="varchar" name="comment_field" nullable="true" comment="Comment field" />
+    </table>
+    <table name="sales_order">
+        <column xsi:type="varchar" name="wishes_field" nullable="true" comment="Wishes field" />
+        <column xsi:type="varchar" name="comment_field" nullable="true" comment="Comment field" />
+    </table>
+</schema>
