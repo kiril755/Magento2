@@ -16,26 +16,4 @@ interface CartExtensionInterface extends \Magento\Framework\Api\ExtensionAttribu
      * @return $this
      */
     public function setShippingAssignments($shippingAssignments);
-
-    /**
-     * @return string|null
-     */
-    public function getWishesField();
-
-    /**
-     * @param string $wishesField
-     * @return $this
-     */
-    public function setWishesField($wishesField);
-
-    /**
-     * @return string|null
-     */
-    public function getCommentField();
-
-    /**
-     * @param string $commentField
-     * @return $this
-     */
-    public function setCommentField($commentField);
 }

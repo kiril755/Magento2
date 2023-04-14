@@ -41,4 +41,22 @@ class AddressExtension extends \Magento\Framework\Api\AbstractSimpleObject imple
         $this->setData('discounts', $discounts);
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getWishField()
+    {
+        return $this->_get('wish_field');
+    }
+
+    /**
+     * @param string $wishField
+     * @return $this
+     */
+    public function setWishField($wishField)
+    {
+        $this->setData('wish_field', $wishField);
+        return $this;
+    }
 }

@@ -6,15 +6,15 @@ define([
     'use strict';
 
     return function (placeOrderAction) {
-        console.log(quote)
         return wrapper.wrap(placeOrderAction, function (originalAction) {
             return originalAction().done(function () {
-                var wishField = $('input[name="wish_field"]').val();
-                if (wishField) {
-                    quote.extension_attributes = quote.extension_attributes || {};
-                    quote.extension_attributes.wish_field = wishField;
-                    quote.save();
+                var wishField = $('input[name="extension_attributes[wish_field]"]').val();
+                var extAttributes = quote.extension_attributes;
+                if (!extAttributes) {
+                    extAttributes = {};
                 }
+                extAttributes.wish_field = wishField;
+                quote.extension_attributes = extAttributes;
             });
         });
     };

@@ -27,4 +27,15 @@ interface AddressExtensionInterface extends \Magento\Framework\Api\ExtensionAttr
      * @return $this
      */
     public function setDiscounts($discounts);
+
+    /**
+     * @return string|null
+     */
+    public function getWishField();
+
+    /**
+     * @param string $wishField
+     * @return $this
+     */
+    public function setWishField($wishField);
 }
