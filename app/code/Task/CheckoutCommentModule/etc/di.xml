@@ -3,4 +3,7 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="add_wish_field" type="Task\CheckoutCommentModule\Plugin\Checkout\LayoutProcessorPlugin"/>
     </type>
+    <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
+        <plugin name="save_wish_field" type="Task\CheckoutCommentModule\Plugin\SaveWishField" sortOrder="1"/>
+    </type>
 </config>

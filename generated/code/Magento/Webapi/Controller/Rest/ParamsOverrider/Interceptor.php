@@ -22,13 +22,4 @@ class Interceptor extends \Magento\Webapi\Controller\Rest\ParamsOverrider implem
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'override');
         return $pluginInfo ? $this->___callPlugins('override', func_get_args(), $pluginInfo) : parent::override($inputData, $parameters);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function overrideRequestBodyIdWithPathParam(array $urlPathParams, array $requestBodyParams, $serviceClassName, $serviceMethodName)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'overrideRequestBodyIdWithPathParam');
-        return $pluginInfo ? $this->___callPlugins('overrideRequestBodyIdWithPathParam', func_get_args(), $pluginInfo) : parent::overrideRequestBodyIdWithPathParam($urlPathParams, $requestBodyParams, $serviceClassName, $serviceMethodName);
-    }
 }

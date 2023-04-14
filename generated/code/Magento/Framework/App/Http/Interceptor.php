@@ -17,15 +17,6 @@ class Interceptor extends \Magento\Framework\App\Http implements \Magento\Framew
     /**
      * {@inheritdoc}
      */
-    public function launch()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'launch');
-        return $pluginInfo ? $this->___callPlugins('launch', func_get_args(), $pluginInfo) : parent::launch();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function catchException(\Magento\Framework\App\Bootstrap $bootstrap, \Exception $exception) : bool
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'catchException');

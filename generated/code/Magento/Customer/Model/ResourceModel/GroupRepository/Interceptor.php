@@ -44,15 +44,6 @@ class Interceptor extends \Magento\Customer\Model\ResourceModel\GroupRepository 
     /**
      * {@inheritdoc}
      */
-    public function delete(\Magento\Customer\Api\Data\GroupInterface $group)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($group);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function deleteById($id)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteById');

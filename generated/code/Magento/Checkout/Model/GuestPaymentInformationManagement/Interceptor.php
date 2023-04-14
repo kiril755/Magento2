@@ -31,13 +31,4 @@ class Interceptor extends \Magento\Checkout\Model\GuestPaymentInformationManagem
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'savePaymentInformation');
         return $pluginInfo ? $this->___callPlugins('savePaymentInformation', func_get_args(), $pluginInfo) : parent::savePaymentInformation($cartId, $email, $paymentMethod, $billingAddress);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getPaymentInformation($cartId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getPaymentInformation');
-        return $pluginInfo ? $this->___callPlugins('getPaymentInformation', func_get_args(), $pluginInfo) : parent::getPaymentInformation($cartId);
-    }
 }

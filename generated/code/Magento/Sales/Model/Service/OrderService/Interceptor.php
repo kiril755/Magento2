@@ -26,72 +26,9 @@ class Interceptor extends \Magento\Sales\Model\Service\OrderService implements \
     /**
      * {@inheritdoc}
      */
-    public function getCommentsList($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCommentsList');
-        return $pluginInfo ? $this->___callPlugins('getCommentsList', func_get_args(), $pluginInfo) : parent::getCommentsList($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function addComment($id, \Magento\Sales\Api\Data\OrderStatusHistoryInterface $statusHistory)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addComment');
-        return $pluginInfo ? $this->___callPlugins('addComment', func_get_args(), $pluginInfo) : parent::addComment($id, $statusHistory);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function notify($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'notify');
-        return $pluginInfo ? $this->___callPlugins('notify', func_get_args(), $pluginInfo) : parent::notify($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getStatus($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getStatus');
-        return $pluginInfo ? $this->___callPlugins('getStatus', func_get_args(), $pluginInfo) : parent::getStatus($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hold($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'hold');
-        return $pluginInfo ? $this->___callPlugins('hold', func_get_args(), $pluginInfo) : parent::hold($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unHold($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'unHold');
-        return $pluginInfo ? $this->___callPlugins('unHold', func_get_args(), $pluginInfo) : parent::unHold($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function place(\Magento\Sales\Api\Data\OrderInterface $order)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'place');
         return $pluginInfo ? $this->___callPlugins('place', func_get_args(), $pluginInfo) : parent::place($order);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setState(\Magento\Sales\Api\Data\OrderInterface $order, $state, $status = false, $comment = '', $isCustomerNotified = null, $shouldProtectState = true)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'setState');
-        return $pluginInfo ? $this->___callPlugins('setState', func_get_args(), $pluginInfo) : parent::setState($order, $state, $status, $comment, $isCustomerNotified, $shouldProtectState);
     }
 }

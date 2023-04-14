@@ -13,13 +13,4 @@ class Interceptor extends \Magento\Checkout\Block\Cart\LayoutProcessor implement
         $this->___init();
         parent::__construct($merger, $countryCollection, $regionCollection, $topDestinationCountries);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function process($jsLayout)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'process');
-        return $pluginInfo ? $this->___callPlugins('process', func_get_args(), $pluginInfo) : parent::process($jsLayout);
-    }
 }

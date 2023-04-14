@@ -17,42 +17,6 @@ class Interceptor extends \Magento\Sales\Model\Order\CreditmemoRepository implem
     /**
      * {@inheritdoc}
      */
-    public function get($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'create');
-        return $pluginInfo ? $this->___callPlugins('create', func_get_args(), $pluginInfo) : parent::create();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
-        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete(\Magento\Sales\Api\Data\CreditmemoInterface $entity)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($entity);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function save(\Magento\Sales\Api\Data\CreditmemoInterface $entity)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');

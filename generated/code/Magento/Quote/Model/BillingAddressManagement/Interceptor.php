@@ -22,13 +22,4 @@ class Interceptor extends \Magento\Quote\Model\BillingAddressManagement implemen
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'assign');
         return $pluginInfo ? $this->___callPlugins('assign', func_get_args(), $pluginInfo) : parent::assign($cartId, $address, $useForShipping);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function get($cartId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($cartId);
-    }
 }
