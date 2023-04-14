@@ -23,4 +23,22 @@ class ShippingInformationExtension extends \Magento\Framework\Api\AbstractSimple
         $this->setData('wish_field', $wishField);
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getCommentField()
+    {
+        return $this->_get('comment_field');
+    }
+
+    /**
+     * @param string $commentField
+     * @return $this
+     */
+    public function setCommentField($commentField)
+    {
+        $this->setData('comment_field', $commentField);
+        return $this;
+    }
 }

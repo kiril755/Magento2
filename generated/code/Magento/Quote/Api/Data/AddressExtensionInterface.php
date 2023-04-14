@@ -38,4 +38,15 @@ interface AddressExtensionInterface extends \Magento\Framework\Api\ExtensionAttr
      * @return $this
      */
     public function setWishField($wishField);
+
+    /**
+     * @return string|null
+     */
+    public function getCommentField();
+
+    /**
+     * @param string $commentField
+     * @return $this
+     */
+    public function setCommentField($commentField);
 }

@@ -22,16 +22,16 @@ public function execute(EventObserver $observer)
 $order = $observer->getOrder();
 $quoteId = $order->getQuoteId();
 
-// Load the quote object
 $quote = $this->quoteRepository->get($quoteId);
 
-// Get the value of the 'wish_field' extension attribute
 $wishField = $quote->getWishField();
+$commentField = $quote->getCommentField();
 
-// Set the value of the 'wish_field' attribute on the order object
+
 $order->setWishField($wishField);
+$order->setCommentField($commentField);
 
-// Save the order object
+
 $this->orderRepository->save($order);
 }
 }

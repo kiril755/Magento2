@@ -16,4 +16,15 @@ interface ShippingInformationExtensionInterface extends \Magento\Framework\Api\E
      * @return $this
      */
     public function setWishField($wishField);
+
+    /**
+     * @return string|null
+     */
+    public function getCommentField();
+
+    /**
+     * @param string $commentField
+     * @return $this
+     */
+    public function setCommentField($commentField);
 }

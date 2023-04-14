@@ -2920,10 +2920,10 @@
     ),
     'Magento\\Checkout\\Api\\ShippingInformationManagementInterface' => 
     array (
-      'save_wish_field' => 
+      'quote_save_field' => 
       array (
         'sortOrder' => 1,
-        'instance' => 'Task\\CheckoutCommentModule\\Plugin\\SaveWishField',
+        'instance' => 'Task\\CheckoutCommentModule\\Plugin\\QuoteSaveField',
       ),
     ),
     'Magento\\Framework\\Authorization' => 
@@ -6945,10 +6945,10 @@
     ),
     'Magento\\Checkout\\Api\\ShippingInformationManagementInterface' => 
     array (
-      'save_wish_field' => 
+      'quote_save_field' => 
       array (
         'sortOrder' => 1,
-        'instance' => 'Task\\CheckoutCommentModule\\Plugin\\SaveWishField',
+        'instance' => 'Task\\CheckoutCommentModule\\Plugin\\QuoteSaveField',
       ),
     ),
     'Magento\\Framework\\AuthorizationInterface' => NULL,
@@ -10285,7 +10285,7 @@
     array (
       1 => 
       array (
-        0 => 'save_wish_field',
+        0 => 'quote_save_field',
       ),
     ),
     'Magento\\Framework\\Authorization_isAllowed___self' => 

@@ -19098,7 +19098,7 @@
   'Task\\CheckoutCommentModule\\Model\\ResourceModel\\Comment\\Collection\\Interceptor' => false,
   'Task\\CheckoutCommentModule\\Observer\\OrderSaveAfter' => false,
   'Task\\CheckoutCommentModule\\Plugin\\Checkout\\LayoutProcessorPlugin' => false,
-  'Task\\CheckoutCommentModule\\Plugin\\SaveWishField' => false,
+  'Task\\CheckoutCommentModule\\Plugin\\QuoteSaveField' => false,
   'Task\\ProductCommentModule\\Block\\Comment' => false,
   'Task\\ProductCommentModule\\Console\\Command\\ApproveComment' => true,
   'Task\\ProductCommentModule\\Console\\Command\\ApproveComment\\Interceptor' => false,

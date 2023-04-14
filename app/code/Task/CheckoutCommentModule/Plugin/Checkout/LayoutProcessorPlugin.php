@@ -18,7 +18,7 @@ class LayoutProcessorPlugin
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/input',
                 'tooltip' => [
-                    'description' => 'Here you can leave delivery notes',
+                    'description' => 'Here you can write your wishes',
                 ],
             ],
             'dataScope' => 'shippingAddress.extension_attributes' . '.' . $customAttributeCode,

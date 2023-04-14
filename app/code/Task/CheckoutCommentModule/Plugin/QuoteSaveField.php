@@ -1,7 +1,7 @@
 <?php
 namespace Task\CheckoutCommentModule\Plugin;
 
-class SaveWishField
+class QuoteSaveField
 {
     protected $cartRepository;
 
