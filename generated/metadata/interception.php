@@ -19096,6 +19096,7 @@
   'Task\\CheckoutCommentModule\\Model\\ResourceModel\\Comment\\Collection' => true,
   'Task\\CheckoutCommentModule\\Model\\ResourceModel\\Comment\\CollectionFactory' => false,
   'Task\\CheckoutCommentModule\\Model\\ResourceModel\\Comment\\Collection\\Interceptor' => false,
+  'Task\\CheckoutCommentModule\\Observer\\OrderSaveAfter' => false,
   'Task\\CheckoutCommentModule\\Plugin\\Checkout\\LayoutProcessorPlugin' => false,
   'Task\\CheckoutCommentModule\\Plugin\\SaveWishField' => false,
   'Task\\ProductCommentModule\\Block\\Comment' => false,
