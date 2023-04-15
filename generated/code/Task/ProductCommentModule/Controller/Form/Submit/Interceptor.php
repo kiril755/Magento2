@@ -8,10 +8,10 @@ class Interceptor extends \Task\ProductCommentModule\Controller\Form\Submit impl
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Magento\Framework\App\Action\Context $context, \Task\ProductCommentModule\Model\ItemFactory $itemFactory)
+    public function __construct(\Magento\Framework\App\Action\Context $context, \Task\ProductCommentModule\Model\ItemFactory $itemFactory, \Magento\Framework\Event\ManagerInterface $eventManager)
     {
         $this->___init();
-        parent::__construct($context, $itemFactory);
+        parent::__construct($context, $itemFactory, $eventManager);
     }
 
     /**

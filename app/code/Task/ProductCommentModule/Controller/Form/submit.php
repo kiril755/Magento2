@@ -5,15 +5,20 @@ namespace Task\ProductCommentModule\Controller\Form;
 use \Magento\Framework\App\Action\Action;
 use \Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Event\ManagerInterface;
 use Task\ProductCommentModule\Model\ItemFactory;
 
 class Submit extends Action
 {
 
     private $itemFactory;
-    public function __construct(Context $context, ItemFactory $itemFactory)
+
+    private $eventManager;
+
+    public function __construct(Context $context, ItemFactory $itemFactory, ManagerInterface $eventManager)
     {
         $this->itemFactory = $itemFactory;
+        $this->eventManager = $eventManager;
         parent::__construct($context);
     }
 
@@ -29,6 +34,8 @@ class Submit extends Action
         $item->setEmail($emailValue);
         $item->setText($textValue);
         $item->save();
+
+        $this->eventManager->dispatch('task_comment_send_email', ['object' => $item]);
 
         // Return response
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);

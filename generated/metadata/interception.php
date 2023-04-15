@@ -19114,6 +19114,7 @@
   'Task\\ProductCommentModule\\Model\\ResourceModel\\Item\\Collection' => true,
   'Task\\ProductCommentModule\\Model\\ResourceModel\\Item\\CollectionFactory' => false,
   'Task\\ProductCommentModule\\Model\\ResourceModel\\Item\\Collection\\Interceptor' => false,
+  'Task\\ProductCommentModule\\Observer\\SendEmail' => false,
   'Temando\\ShippingRemover\\Setup\\Patch\\Data\\AttributesRemoval' => false,
   'Temando\\ShippingRemover\\Setup\\Patch\\Data\\BookmarkCleaner' => false,
   'Temando\\ShippingRemover\\Setup\\Patch\\Data\\ConfigRemoval' => false,
