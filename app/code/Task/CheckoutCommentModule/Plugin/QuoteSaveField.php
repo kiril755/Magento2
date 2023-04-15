@@ -19,8 +19,13 @@ class QuoteSaveField
         $quote = $this->cartRepository->getActive($cartId);
         $extensionAttributes = $addressInformation->getShippingAddress()->getExtensionAttributes();
 
-        if ($extensionAttributes && $extensionAttributes->getWishField()) {
-            $quote->setWishField($extensionAttributes->getWishField());
+        if ($extensionAttributes) {
+            if ($extensionAttributes->getWishField()) {
+                $quote->setWishField($extensionAttributes->getWishField());
+            }
+            if ($extensionAttributes->getCommentField()) {
+                $quote->setCommentField($extensionAttributes->getCommentField());
+            }
         }
 
         return [$cartId, $addressInformation];

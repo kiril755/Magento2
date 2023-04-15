@@ -1,8 +1,8 @@
 var config = {
     config: {
         mixins: {
-            'Magento_Checkout/js/action/place-order': {
-                'Task_CheckoutCommentModule/js/action/place-order-mixin': true
+            'Magento_Checkout/js/action/set-shipping-information': {
+                'Task_CheckoutCommentModule/js/action/set-shipping-information-mixin': true
             }
         }
     },
