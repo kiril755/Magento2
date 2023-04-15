@@ -27,7 +27,6 @@ $quote = $this->quoteRepository->get($quoteId);
 $wishField = $quote->getWishField();
 $commentField = $quote->getCommentField();
 
-
 $order->setWishField($wishField);
 $order->setCommentField($commentField);
 
