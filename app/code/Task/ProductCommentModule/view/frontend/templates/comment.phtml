@@ -5,11 +5,11 @@
     <div class="form-container">
         <form class="form" id="my-form" action="<?php echo $block->getUrl('task/form/submit') ?>" method="post">
             <label for="nickname">Nickname</label>
-            <input class="input" type="text" name="nickname" id="nickname" placeholder="Your nickname" value="<?php echo $block->escapeHtml($block->getUserData('name'));?>">
+            <input class="input" type="text" name="nickname" id="nickname" placeholder="Your nickname" required value="<?php echo $block->escapeHtml($block->getUserData('name'));?>">
             <label for="email">Email address</label>
-            <input class="input" type="email" name="email" id="email" placeholder="Your email" value="<?php echo $block->escapeHtml($block->getUserData('email'));?>">
+            <input class="input" type="email" name="email" id="email" placeholder="Your email" required value="<?php echo $block->escapeHtml($block->getUserData('email'));?>">
             <label for="text">Comment</label>
-            <textarea class="input" id="text" rows="3" name="text"></textarea>
+            <textarea class="input" id="text" rows="3" required name="text"></textarea>
             <button class="button" type="submit">Submit</button>
         </form>
     </div>
