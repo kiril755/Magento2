@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="comment_product" resource="default" engine="innodb" comment="Product comments">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Comment ID"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="varchar" name="nickname" nullable="false" comment="Nickname"/>
+        <column xsi:type="varchar" name="email" nullable="false" comment="Email"/>
+        <column xsi:type="text" name="text" nullable="false" comment="Comment text"/>
+        <column xsi:type="varchar" name="status" nullable="false" default="pending" comment="Comment status"/>
+        <column xsi:type="timestamp" name="create_time" nullable="false" default="CURRENT_TIMESTAMP" comment="Create time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="COMMENT_COMMENT_PRODUCT_STATUS" indexType="btree">
+            <column name="status"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="COMMENT_COMMENT_PRODUCT_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID"
+                    table="comment_product" column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

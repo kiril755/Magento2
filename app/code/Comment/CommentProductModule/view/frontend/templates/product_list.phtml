@@ -1,0 +1,15 @@
+<?php
+/** @var \Comment\CommentProductModule\Block\ProductListBlock $block */
+?>
+<div class="product-list">
+    <h2>Selected Products</h2>
+    <ul>
+        <?php foreach ($block->getProductCollection()->getItems() as $product): ?>
+            <li>
+                <a href="<?php echo $block->escapeUrl($product->getProductUrl()) ?>">
+                    <?php echo $block->escapeHtml($product->getName()) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
