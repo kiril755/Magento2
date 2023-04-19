@@ -1,0 +1,8 @@
+<?php foreach ($block->getData('comments') as $comment): ?>
+    <tr class="tabel-raw-comment">
+        <td class="table-data"><?= $block->escapeHtml($comment['id']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($comment['nickname']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($comment['email']) ?></td>
+        <td class="table-data"><?= $block->escapeHtml($comment['comment']) ?></td>
+    </tr>
+<?php endforeach; ?>

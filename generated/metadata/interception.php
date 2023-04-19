@@ -19108,6 +19108,7 @@
   'Task\\ProductCommentModule\\Controller\\Form\\Submit\\Interceptor' => false,
   'Task\\ProductCommentModule\\Controller\\Index\\Index' => true,
   'Task\\ProductCommentModule\\Controller\\Index\\Index\\Interceptor' => false,
+  'Task\\ProductCommentModule\\Helper\\Email' => false,
   'Task\\ProductCommentModule\\Model\\Item' => false,
   'Task\\ProductCommentModule\\Model\\ItemFactory' => false,
   'Task\\ProductCommentModule\\Model\\ResourceModel\\Item' => false,

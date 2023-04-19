@@ -33,7 +33,7 @@ class Submit extends Action
         $item->setNickname($nicknameValue);
         $item->setEmail($emailValue);
         $item->setText($textValue);
-        $item->save();
+//        $item->save();
 
         $this->eventManager->dispatch('task_comment_send_email', ['object' => $item]);
 

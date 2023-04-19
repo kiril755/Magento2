@@ -1,0 +1,52 @@
+<!--@subject {{trans "Reminder of unapproved comments"}} @-->
+{{template config_path="design/email/header_template"}}
+
+<style>
+    .new-comment-container {
+        width: 100%;
+    }
+    .table-header{
+        border: 1px solid #D3D3D3;
+    }
+    .tabel-raw-comment_info {
+        background-color: #D3D3D3;
+    }
+    .table-data {
+        border: 1px solid #D3D3D3;
+    }
+
+    .comments-container{
+        width: 100%;
+    }
+</style>
+
+<h2>Hello dear Owner, there are new comments from {{trans "%nickname" nickname=$data.newComment.nickname}}!</h2>
+<table class="new-comment-container">
+    <tr class="tabel-raw-comment_info">
+        <th class="table-header nickname">Nickname</th>
+        <th class="table-header email">Email</th>
+        <th class="table-header comment">Comment</th>
+    </tr>
+    <tr class="tabel-raw-comment">
+        <td class="table-data">{{trans "%nickname" nickname=$data.newComment.nickname}}</td>
+        <td class="table-data ">{{trans "%email" email=$data.newComment.email}}</td>
+        <td class="table-data ">{{trans "%comment" comment=$data.newComment.comment}}</td>
+    </tr>
+</table>
+<h3>Also, don't forget to approve or reject the comments down below:</h3>
+<table class="comments-container">
+    <tr class="tabel-raw-comment_info">
+        <th class="table-header-nickname">Id</th>
+        <th class="table-header-nickname">Nickname</th>
+        <th class="table-header-email">Email</th>
+        <th class="table-header-comment">Comment</th>
+    </tr>
+        {{block
+        class='Magento\\Framework\\View\\Element\\Template'
+        template='Task_ProductCommentModule::email/last_five_comments_template.phtml'
+        area='frontend'
+        comments=$data.lastFiveComment
+        }}
+</table>
+
+{{template config_path="design/email/footer_template"}}
