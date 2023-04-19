@@ -1,4 +1,9 @@
 <?php return array (
+  'comment\\commentproductmodule\\controller\\adminhtml\\edit\\inlineedit' => 'Comment\\CommentProductModule\\Controller\\Adminhtml\\Edit\\InlineEdit',
+  'comment\\commentproductmodule\\controller\\adminhtml\\index\\index' => 'Comment\\CommentProductModule\\Controller\\Adminhtml\\Index\\Index',
+  'comment\\commentproductmodule\\controller\\adminhtml\\pending\\index' => 'Comment\\CommentProductModule\\Controller\\Adminhtml\\Pending\\Index',
+  'comment\\commentproductmodule\\controller\\adminhtml\\reject\\index' => 'Comment\\CommentProductModule\\Controller\\Adminhtml\\Reject\\Index',
+  'comment\\commentproductmodule\\controller\\adminhtml\\success\\index' => 'Comment\\CommentProductModule\\Controller\\Adminhtml\\Success\\Index',
   'comment\\commentproductmodule\\controller\\form\\submit' => 'Comment\\CommentProductModule\\Controller\\Form\\Submit',
   'magento\\adminadobeims\\controller\\adminhtml\\oauth\\imscallback' => 'Magento\\AdminAdobeIms\\Controller\\Adminhtml\\OAuth\\ImsCallback',
   'magento\\adminadobeims\\controller\\adminhtml\\oauth\\imsreauthcallback' => 'Magento\\AdminAdobeIms\\Controller\\Adminhtml\\OAuth\\ImsReauthCallback',

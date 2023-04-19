@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Comment_CommentProductModule::comment" title="Product comments"
+             module="Comment_CommentProductModule"
+             sortOrder="20"
+             resource="Comment_CommentProductModule::comment"/>
+        <add id="Comment_CommentProductModule::comment_all"
+             title="All comments"
+             module="Comment_CommentProductModule"
+             sortOrder="1"
+             action="comment"
+             resource="Comment_CommentProductModule::comment_all"
+             parent="Comment_CommentProductModule::comment"
+        />
+        <add id="Comment_CommentProductModule::comment_success"
+             title="Success comments"
+             module="Comment_CommentProductModule"
+             sortOrder="1"
+             action="comment/success"
+             resource="Comment_CommentProductModule::comment_success"
+             parent="Comment_CommentProductModule::comment"
+        />
+        <add id="Comment_CommentProductModule::comment_pending"
+             title="Pending comments"
+             module="Comment_CommentProductModule"
+             sortOrder="2"
+             action="comment/pending"
+             parent="Comment_CommentProductModule::comment"
+             resource="Comment_CommentProductModule::comment_pending" />
+        <add id="Comment_CommentProductModule::comment_reject"
+             title="Reject comments"
+             module="Comment_CommentProductModule"
+             sortOrder="3"
+             action="comment/reject"
+             parent="Comment_CommentProductModule::comment"
+             resource="Comment_CommentProductModule::comment_reject" />
+    </menu>
+</config>
