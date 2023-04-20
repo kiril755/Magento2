@@ -22,22 +22,4 @@ class Interceptor extends \Magento\Framework\Api\DataObjectHelper implements \Ma
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'populateWithArray');
         return $pluginInfo ? $this->___callPlugins('populateWithArray', func_get_args(), $pluginInfo) : parent::populateWithArray($dataObject, $data, $interfaceName);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function mergeDataObjects($interfaceName, $firstDataObject, $secondDataObject)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'mergeDataObjects');
-        return $pluginInfo ? $this->___callPlugins('mergeDataObjects', func_get_args(), $pluginInfo) : parent::mergeDataObjects($interfaceName, $firstDataObject, $secondDataObject);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCustomAttributeValueByType(array $attributeValues, $type)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCustomAttributeValueByType');
-        return $pluginInfo ? $this->___callPlugins('getCustomAttributeValueByType', func_get_args(), $pluginInfo) : parent::getCustomAttributeValueByType($attributeValues, $type);
-    }
 }

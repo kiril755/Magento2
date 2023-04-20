@@ -22,31 +22,4 @@ class Interceptor extends \Magento\Catalog\Model\CategoryRepository implements \
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
         return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($category);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function get($categoryId, $storeId = null)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
-        return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($categoryId, $storeId);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete(\Magento\Catalog\Api\Data\CategoryInterface $category)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($category);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function deleteByIdentifier($categoryId)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteByIdentifier');
-        return $pluginInfo ? $this->___callPlugins('deleteByIdentifier', func_get_args(), $pluginInfo) : parent::deleteByIdentifier($categoryId);
-    }
 }

@@ -17,28 +17,10 @@ class Interceptor extends \Magento\CatalogRule\Model\Indexer\Rule\RuleProductInd
     /**
      * {@inheritdoc}
      */
-    public function execute($ids)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'execute');
-        return $pluginInfo ? $this->___callPlugins('execute', func_get_args(), $pluginInfo) : parent::execute($ids);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function executeFull()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeFull');
         return $pluginInfo ? $this->___callPlugins('executeFull', func_get_args(), $pluginInfo) : parent::executeFull();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getIdentities()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdentities');
-        return $pluginInfo ? $this->___callPlugins('getIdentities', func_get_args(), $pluginInfo) : parent::getIdentities();
     }
 
     /**

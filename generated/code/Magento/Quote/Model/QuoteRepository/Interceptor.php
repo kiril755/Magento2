@@ -26,15 +26,6 @@ class Interceptor extends \Magento\Quote\Model\QuoteRepository implements \Magen
     /**
      * {@inheritdoc}
      */
-    public function getForCustomer($customerId, array $sharedStoreIds = [])
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getForCustomer');
-        return $pluginInfo ? $this->___callPlugins('getForCustomer', func_get_args(), $pluginInfo) : parent::getForCustomer($customerId, $sharedStoreIds);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getActive($cartId, array $sharedStoreIds = [])
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getActive');
@@ -57,15 +48,6 @@ class Interceptor extends \Magento\Quote\Model\QuoteRepository implements \Magen
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
         return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($quote);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete(\Magento\Quote\Api\Data\CartInterface $quote)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($quote);
     }
 
     /**

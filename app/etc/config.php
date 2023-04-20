@@ -353,6 +353,7 @@ return [
         'Task_ProductCommentModule' => 1,
         'Task_AdvancedCommentManagement' => 1,
         'Task_AdminManageComment' => 1,
+        'Task_InterceptUsernameValue' => 1,
         'Task_CheckoutCommentModule' => 1,
         'Temando_ShippingRemover' => 1
     ]
