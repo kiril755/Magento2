@@ -26,37 +26,10 @@ class Interceptor extends \Magento\Catalog\Model\Product\Attribute\Repository im
     /**
      * {@inheritdoc}
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
-        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function save(\Magento\Catalog\Api\Data\ProductAttributeInterface $attribute)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
         return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($attribute);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete(\Magento\Catalog\Api\Data\ProductAttributeInterface $attribute)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($attribute);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function deleteById($attributeCode)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteById');
-        return $pluginInfo ? $this->___callPlugins('deleteById', func_get_args(), $pluginInfo) : parent::deleteById($attributeCode);
     }
 
     /**

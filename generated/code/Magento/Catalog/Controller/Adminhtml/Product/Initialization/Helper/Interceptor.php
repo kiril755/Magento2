@@ -31,13 +31,4 @@ class Interceptor extends \Magento\Catalog\Controller\Adminhtml\Product\Initiali
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'initialize');
         return $pluginInfo ? $this->___callPlugins('initialize', func_get_args(), $pluginInfo) : parent::initialize($product);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function mergeProductOptions($productOptions, $overwriteOptions)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'mergeProductOptions');
-        return $pluginInfo ? $this->___callPlugins('mergeProductOptions', func_get_args(), $pluginInfo) : parent::mergeProductOptions($productOptions, $overwriteOptions);
-    }
 }

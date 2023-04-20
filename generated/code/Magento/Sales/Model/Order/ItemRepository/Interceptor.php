@@ -22,40 +22,4 @@ class Interceptor extends \Magento\Sales\Model\Order\ItemRepository implements \
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'get');
         return $pluginInfo ? $this->___callPlugins('get', func_get_args(), $pluginInfo) : parent::get($id);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
-        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function delete(\Magento\Sales\Api\Data\OrderItemInterface $entity)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
-        return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($entity);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function deleteById($id)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'deleteById');
-        return $pluginInfo ? $this->___callPlugins('deleteById', func_get_args(), $pluginInfo) : parent::deleteById($id);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function save(\Magento\Sales\Api\Data\OrderItemInterface $entity)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
-        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($entity);
-    }
 }
