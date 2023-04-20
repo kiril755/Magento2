@@ -59,7 +59,15 @@ class Comment extends Template
 
     public function getItems () {
 
-        return $this->collectionFactory->create()->addFieldToFilter('status', 'success');
+        $productId = $this->getCurrentProductId();
+        if ($productId) {
+            $collection = $this->collectionFactory->create();
+            $collection->addFieldToFilter('product_id', $productId);
+            $collection->addFieldToFilter('status', 'success');
+            return $collection;
+        } else {
+            return [];
+        }
 
     }
 }
