@@ -26,6 +26,15 @@ class Interceptor extends \Magento\InventoryIndexer\Indexer\Stock\Strategy\Sync 
     /**
      * {@inheritdoc}
      */
+    public function executeRow(int $stockId) : void
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeRow');
+        $pluginInfo ? $this->___callPlugins('executeRow', func_get_args(), $pluginInfo) : parent::executeRow($stockId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function executeList(array $stockIds) : void
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeList');

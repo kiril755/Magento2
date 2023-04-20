@@ -22,4 +22,13 @@ class Interceptor extends \Magento\InventoryConfiguration\Model\GetLegacyStockIt
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'execute');
         return $pluginInfo ? $this->___callPlugins('execute', func_get_args(), $pluginInfo) : parent::execute($sku);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLegacyStockItemBySku(string $sku) : \Magento\CatalogInventory\Api\Data\StockItemInterface
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getLegacyStockItemBySku');
+        return $pluginInfo ? $this->___callPlugins('getLegacyStockItemBySku', func_get_args(), $pluginInfo) : parent::getLegacyStockItemBySku($sku);
+    }
 }

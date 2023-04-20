@@ -35,6 +35,7 @@ class Submit extends Action
 
         // Save form data to database
         $item = $this->commentFactory->create();
+        $item->setProductLink($this->_redirect->getRefererUrl());
         $item->setProductId($productId);
         $item->setNickname($nicknameValue);
         $item->setEmail($emailValue);

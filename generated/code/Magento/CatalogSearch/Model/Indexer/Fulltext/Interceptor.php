@@ -17,6 +17,24 @@ class Interceptor extends \Magento\CatalogSearch\Model\Indexer\Fulltext implemen
     /**
      * {@inheritdoc}
      */
+    public function execute($entityIds)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'execute');
+        return $pluginInfo ? $this->___callPlugins('execute', func_get_args(), $pluginInfo) : parent::execute($entityIds);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function executeByDimensions(array $dimensions, ?\Traversable $entityIds = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeByDimensions');
+        return $pluginInfo ? $this->___callPlugins('executeByDimensions', func_get_args(), $pluginInfo) : parent::executeByDimensions($dimensions, $entityIds);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function executeFull()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeFull');

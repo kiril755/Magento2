@@ -17,9 +17,27 @@ class Interceptor extends \Magento\Catalog\Helper\Product\View implements \Magen
     /**
      * {@inheritdoc}
      */
+    public function initProductLayout(\Magento\Framework\View\Result\Page $resultPage, $product, $params = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'initProductLayout');
+        return $pluginInfo ? $this->___callPlugins('initProductLayout', func_get_args(), $pluginInfo) : parent::initProductLayout($resultPage, $product, $params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function prepareAndRender(\Magento\Framework\View\Result\Page $resultPage, $productId, $controller, $params = null)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'prepareAndRender');
         return $pluginInfo ? $this->___callPlugins('prepareAndRender', func_get_args(), $pluginInfo) : parent::prepareAndRender($resultPage, $productId, $controller, $params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isModuleOutputEnabled($moduleName = null)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isModuleOutputEnabled');
+        return $pluginInfo ? $this->___callPlugins('isModuleOutputEnabled', func_get_args(), $pluginInfo) : parent::isModuleOutputEnabled($moduleName);
     }
 }

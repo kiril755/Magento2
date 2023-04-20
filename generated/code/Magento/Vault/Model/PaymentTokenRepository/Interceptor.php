@@ -17,9 +17,36 @@ class Interceptor extends \Magento\Vault\Model\PaymentTokenRepository implements
     /**
      * {@inheritdoc}
      */
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getList');
+        return $pluginInfo ? $this->___callPlugins('getList', func_get_args(), $pluginInfo) : parent::getList($searchCriteria);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getById($entityId)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getById');
+        return $pluginInfo ? $this->___callPlugins('getById', func_get_args(), $pluginInfo) : parent::getById($entityId);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function delete(\Magento\Vault\Api\Data\PaymentTokenInterface $paymentToken)
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'delete');
         return $pluginInfo ? $this->___callPlugins('delete', func_get_args(), $pluginInfo) : parent::delete($paymentToken);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function save(\Magento\Vault\Api\Data\PaymentTokenInterface $paymentToken)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'save');
+        return $pluginInfo ? $this->___callPlugins('save', func_get_args(), $pluginInfo) : parent::save($paymentToken);
     }
 }
