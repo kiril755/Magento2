@@ -27,7 +27,6 @@ class ProductListBlock extends Template
 
     public function getProductCollection()
     {
-
         $searchCriteria = $this->searchCriteriaBuilder->addFilter('entity_id', $this->selectedProductIds, 'in')->create();
         $result = $this->productRepository->getList($searchCriteria);
         return $result;

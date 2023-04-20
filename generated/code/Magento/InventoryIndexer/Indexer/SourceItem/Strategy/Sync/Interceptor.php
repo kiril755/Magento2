@@ -26,6 +26,15 @@ class Interceptor extends \Magento\InventoryIndexer\Indexer\SourceItem\Strategy\
     /**
      * {@inheritdoc}
      */
+    public function executeFull() : void
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeFull');
+        $pluginInfo ? $this->___callPlugins('executeFull', func_get_args(), $pluginInfo) : parent::executeFull();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function executeRow(int $sourceItemId) : void
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'executeRow');

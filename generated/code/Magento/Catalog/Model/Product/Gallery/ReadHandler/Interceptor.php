@@ -22,4 +22,22 @@ class Interceptor extends \Magento\Catalog\Model\Product\Gallery\ReadHandler imp
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'execute');
         return $pluginInfo ? $this->___callPlugins('execute', func_get_args(), $pluginInfo) : parent::execute($entity, $arguments);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addMediaDataToProduct(\Magento\Catalog\Model\Product $product, array $mediaEntries)
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'addMediaDataToProduct');
+        return $pluginInfo ? $this->___callPlugins('addMediaDataToProduct', func_get_args(), $pluginInfo) : parent::addMediaDataToProduct($product, $mediaEntries);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttribute()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getAttribute');
+        return $pluginInfo ? $this->___callPlugins('getAttribute', func_get_args(), $pluginInfo) : parent::getAttribute();
+    }
 }
