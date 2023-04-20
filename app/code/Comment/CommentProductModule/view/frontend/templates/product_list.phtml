@@ -1,15 +1,32 @@
 <?php
 /** @var \Comment\CommentProductModule\Block\ProductListBlock $block */
 ?>
-<div class="product-list">
-    <h2>Selected Products</h2>
-    <ul>
-        <?php foreach ($block->getProductCollection()->getItems() as $product): ?>
-            <li>
-                <a href="<?php echo $block->escapeUrl($product->getProductUrl()) ?>">
-                    <?php echo $block->escapeHtml($product->getName()) ?>
-                </a>
+<h2>Selected Products</h2>
+<div class="products-grid grid">
+    <ul class="product-items widget-product-grid">
+        <?php foreach ($block->getProductCollection() as $product): ?>
+
+            <li class="product-item">
+                <div class="product-item-info">
+                    <a href="<?php echo $block->escapeUrl($product->getProductUrl()) ?>" class="product-item-photo">
+                        <span class="product-image-container product-image-container-1556">
+                            <span class="product-image-wrapper">
+                                <img class="product-image-photo" src="<?php echo $block->escapeHtml($product->getImage())?>">
+                            </span>
+                        </span>
+<!--                        --><?php //echo $block->escapeHtml($product->getName()) ?>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a class="product-item-link" href="<?php echo $block->escapeUrl($product->getProductUrl()) ?>">
+                                <?php echo $block->escapeUrl($product->getName()) ?>
+                            </a>
+                        </strong>
+                    </div>
+                </div>
             </li>
+
+
         <?php endforeach; ?>
     </ul>
 </div>
