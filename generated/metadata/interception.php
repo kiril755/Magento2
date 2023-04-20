@@ -178,6 +178,7 @@
   'Comment\\CommentProductModule\\Controller\\Adminhtml\\Success\\Index\\Interceptor' => false,
   'Comment\\CommentProductModule\\Controller\\Form\\Submit' => true,
   'Comment\\CommentProductModule\\Controller\\Form\\Submit\\Interceptor' => false,
+  'Comment\\CommentProductModule\\Cron\\RejectComment' => false,
   'Comment\\CommentProductModule\\Model\\Comment' => false,
   'Comment\\CommentProductModule\\Model\\CommentFactory' => false,
   'Comment\\CommentProductModule\\Model\\Config\\Options' => false,
