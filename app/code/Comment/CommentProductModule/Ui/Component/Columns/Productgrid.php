@@ -10,6 +10,7 @@ use \Magento\Catalog\Api\ProductRepositoryInterface;
 class Productgrid extends Column
 
 {
+
     protected $ProductRepositoryInterface;
     public function __construct(
         ContextInterface           $context,

@@ -14,6 +14,7 @@ class ProductListBlock extends Template
     protected $searchCriteriaBuilder;
     protected $_imageHelper;
 
+
     public function __construct(
         Context $context,
         ProductRepositoryInterface $productRepository,

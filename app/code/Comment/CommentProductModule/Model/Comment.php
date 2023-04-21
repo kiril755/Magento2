@@ -11,3 +11,4 @@ class Comment extends AbstractModel
         $this->_init(\Comment\CommentProductModule\Model\ResourceModel\Comment::class);
     }
 }
+

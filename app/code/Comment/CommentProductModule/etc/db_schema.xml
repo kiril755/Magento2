@@ -19,3 +19,4 @@
                     referenceColumn="entity_id" onDelete="CASCADE"/>
     </table>
 </schema>
+

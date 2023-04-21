@@ -56,7 +56,6 @@ class Comment extends Template
             return '';
         }
     }
-
     public function getItems () {
 
         $productId = $this->getCurrentProductId();

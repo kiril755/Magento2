@@ -20,6 +20,7 @@ class RejectComment
         $this->commentFactory = $commentFactory;
     }
 
+
     public function execute()
     {
         $commentCollection = $this->collectionFactory->create()

@@ -32,3 +32,4 @@ class ProductList implements OptionSourceInterface
         return $options;
     }
 }
+

@@ -22,9 +22,6 @@ class InlineEdit extends Action
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
     }
-    /**
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
         /**
