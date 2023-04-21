@@ -17,7 +17,6 @@ class CreatePostPlugin
 
         // Set the modified input value back to the request object
         $subject->getRequest()->setPostValue('firstname', $modifiedValue);
-
         return $proceed();
     }
 }
