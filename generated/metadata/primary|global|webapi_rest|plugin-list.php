@@ -441,6 +441,12 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\Swatches\\Model\\Plugin\\Product',
       ),
+      'hide-product-info-for-guest' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HideProductInfoForGuest',
+      ),
       'apply_catalog_rules_after_product_save_and_reindex' => 
       array (
         'sortOrder' => 0,
@@ -2918,6 +2924,15 @@
         'instance' => 'Task\\InterceptUsernameValue\\Plugin\\CreatePostPlugin',
       ),
     ),
+    'Magento\\Checkout\\Controller\\Index\\Index' => 
+    array (
+      'disable-guest_checkout' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+      ),
+    ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
     array (
       'add_wish_field' => 
@@ -3753,6 +3768,12 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\CatalogRule\\Plugin\\Indexer\\Product\\Save\\ApplyRulesAfterReindex',
+      ),
+      'hide-product-info-for-guest' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HideProductInfoForGuest',
       ),
       'cms' => 
       array (
@@ -6986,6 +7007,66 @@
         'instance' => 'Task\\InterceptUsernameValue\\Plugin\\CreatePostPlugin',
       ),
     ),
+    'Magento\\Checkout\\Controller\\Action' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Onepage' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+      'disable-guest_checkout' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+      ),
+    ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
     array (
       'add_wish_field' => 
@@ -7730,6 +7811,14 @@
       array (
         0 => 'apply_catalog_rules_after_product_save_and_reindex',
       ),
+    ),
+    'Magento\\Catalog\\Model\\Product_isSalable___self' => 
+    array (
+      2 => 'hide-product-info-for-guest',
+    ),
+    'Magento\\Catalog\\Model\\Product_getPrice___self' => 
+    array (
+      2 => 'hide-product-info-for-guest',
     ),
     'Magento\\Cms\\Api\\PageRepositoryInterface_save___self' => 
     array (
@@ -10343,6 +10432,34 @@
         2 => 'customerNotification',
       ),
       2 => 'task_intercept_username_value',
+    ),
+    'Magento\\Checkout\\Controller\\Action_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Onepage_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+      ),
+      2 => 'disable-guest_checkout',
     ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor_process___self' => 
     array (

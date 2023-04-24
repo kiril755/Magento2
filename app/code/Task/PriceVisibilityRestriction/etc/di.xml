@@ -1,0 +1,8 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="hide-product-info-for-guest" type="Task\PriceVisibilityRestriction\Plugin\HideProductInfoForGuest" sortOrder="10" disabled="false" />
+    </type>
+    <type name="Magento\Checkout\Controller\Index\Index">
+        <plugin name="disable-guest_checkout" type="Task\PriceVisibilityRestriction\Plugin\DisableGuestCheckout" sortOrder="10" disabled="false" />
+    </type>
+</config>

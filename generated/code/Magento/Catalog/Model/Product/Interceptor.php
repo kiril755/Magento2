@@ -17,6 +17,15 @@ class Interceptor extends \Magento\Catalog\Model\Product implements \Magento\Fra
     /**
      * {@inheritdoc}
      */
+    public function getPrice()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getPrice');
+        return $pluginInfo ? $this->___callPlugins('getPrice', func_get_args(), $pluginInfo) : parent::getPrice();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function reindex()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'reindex');
@@ -30,6 +39,15 @@ class Interceptor extends \Magento\Catalog\Model\Product implements \Magento\Fra
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getMediaAttributes');
         return $pluginInfo ? $this->___callPlugins('getMediaAttributes', func_get_args(), $pluginInfo) : parent::getMediaAttributes();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isSalable()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isSalable');
+        return $pluginInfo ? $this->___callPlugins('isSalable', func_get_args(), $pluginInfo) : parent::isSalable();
     }
 
     /**

@@ -354,6 +354,7 @@ return [
         'Task_AdvancedCommentManagement' => 1,
         'Task_AdminManageComment' => 1,
         'Task_InterceptUsernameValue' => 1,
+        'Task_PriceVisibilityRestriction' => 1,
         'Task_CheckoutCommentModule' => 1,
         'Temando_ShippingRemover' => 1
     ]

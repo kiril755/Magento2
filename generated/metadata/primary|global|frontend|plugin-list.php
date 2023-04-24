@@ -470,6 +470,12 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\Swatches\\Model\\Plugin\\Product',
       ),
+      'hide-product-info-for-guest' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HideProductInfoForGuest',
+      ),
       'add_bundle_child_identities' => 
       array (
         'sortOrder' => 100,
@@ -2946,6 +2952,25 @@
         'instance' => 'Task\\InterceptUsernameValue\\Plugin\\CreatePostPlugin',
       ),
     ),
+    'Magento\\Checkout\\Controller\\Index\\Index' => 
+    array (
+      'disable-guest_checkout' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+      ),
+      'multishipping_disabler' => 
+      array (
+        'sortOrder' => 50,
+        'instance' => 'Magento\\Multishipping\\Plugin\\DisableMultishippingMode',
+      ),
+      'sdk_url_configuration' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Paypal\\Plugin\\CheckoutIndex',
+      ),
+    ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
     array (
       'add_wish_field' => 
@@ -3265,19 +3290,6 @@
       array (
         'sortOrder' => 50,
         'instance' => 'Magento\\Multishipping\\Plugin\\DisableMultishippingMode',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index' => 
-    array (
-      'multishipping_disabler' => 
-      array (
-        'sortOrder' => 50,
-        'instance' => 'Magento\\Multishipping\\Plugin\\DisableMultishippingMode',
-      ),
-      'sdk_url_configuration' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Paypal\\Plugin\\CheckoutIndex',
       ),
     ),
     'Magento\\Checkout\\Model\\Cart' => 
@@ -4329,6 +4341,12 @@
       array (
         'sortOrder' => 0,
         'instance' => 'Magento\\Swatches\\Model\\Plugin\\Product',
+      ),
+      'hide-product-info-for-guest' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HideProductInfoForGuest',
       ),
       'cms' => 
       array (
@@ -8422,6 +8440,166 @@
         'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
       ),
     ),
+    'Magento\\Checkout\\Controller\\Action' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+      'tax-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'weee-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'invalidate_expired_session_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
+      ),
+      'catalog_app_action_dispatch_controller_context_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
+      ),
+      'customer-app-action-executeController-context-plugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'contextPlugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Onepage' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+      'tax-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'weee-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'invalidate_expired_session_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
+      ),
+      'catalog_app_action_dispatch_controller_context_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
+      ),
+      'customer-app-action-executeController-context-plugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'contextPlugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index' => 
+    array (
+      'storeCheck' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
+      ),
+      'designLoader' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
+      ),
+      'customerNotification' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
+      ),
+      'tax-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'weee-app-action-dispatchController-context-plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'invalidate_expired_session_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
+      ),
+      'catalog_app_action_dispatch_controller_context_plugin' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
+      ),
+      'sdk_url_configuration' => 
+      array (
+        'sortOrder' => 0,
+        'instance' => 'Magento\\Paypal\\Plugin\\CheckoutIndex',
+      ),
+      'customer-app-action-executeController-context-plugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
+      ),
+      'contextPlugin' => 
+      array (
+        'sortOrder' => 10,
+        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
+      ),
+      'disable-guest_checkout' => 
+      array (
+        'sortOrder' => 10,
+        'disabled' => false,
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+      ),
+      'multishipping_disabler' => 
+      array (
+        'sortOrder' => 50,
+        'instance' => 'Magento\\Multishipping\\Plugin\\DisableMultishippingMode',
+      ),
+    ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
     array (
       'add_wish_field' => 
@@ -8902,160 +9080,6 @@
       array (
         'sortOrder' => 50,
         'instance' => 'Magento\\Multishipping\\Model\\Cart\\Controller\\CartPlugin',
-      ),
-      'multishipping_disabler' => 
-      array (
-        'sortOrder' => 50,
-        'instance' => 'Magento\\Multishipping\\Plugin\\DisableMultishippingMode',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Action' => 
-    array (
-      'storeCheck' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-      'tax-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'weee-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'invalidate_expired_session_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
-      ),
-      'catalog_app_action_dispatch_controller_context_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
-      ),
-      'customer-app-action-executeController-context-plugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'contextPlugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Onepage' => 
-    array (
-      'storeCheck' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-      'tax-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'weee-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'invalidate_expired_session_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
-      ),
-      'catalog_app_action_dispatch_controller_context_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
-      ),
-      'customer-app-action-executeController-context-plugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'contextPlugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index' => 
-    array (
-      'storeCheck' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-      'tax-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Tax\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'weee-app-action-dispatchController-context-plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Weee\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'invalidate_expired_session_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\LoginAsCustomerFrontendUi\\Plugin\\InvalidateExpiredSessionPlugin',
-      ),
-      'catalog_app_action_dispatch_controller_context_plugin' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Catalog\\Plugin\\Framework\\App\\Action\\ContextPlugin',
-      ),
-      'sdk_url_configuration' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Paypal\\Plugin\\CheckoutIndex',
-      ),
-      'customer-app-action-executeController-context-plugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Customer\\Model\\App\\Action\\ContextPlugin',
-      ),
-      'contextPlugin' => 
-      array (
-        'sortOrder' => 10,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\Context',
       ),
       'multishipping_disabler' => 
       array (
@@ -10057,6 +10081,14 @@
       array (
         0 => 'exclude_swatch_attribute',
       ),
+    ),
+    'Magento\\Catalog\\Model\\Product_isSalable___self' => 
+    array (
+      2 => 'hide-product-info-for-guest',
+    ),
+    'Magento\\Catalog\\Model\\Product_getPrice___self' => 
+    array (
+      2 => 'hide-product-info-for-guest',
     ),
     'Magento\\Cms\\Model\\PageRepository\\ValidationComposite_save___self' => 
     array (
@@ -13034,6 +13066,78 @@
         0 => 'customer-app-action-executeController-context-plugin',
       ),
     ),
+    'Magento\\Checkout\\Controller\\Action_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+        3 => 'tax-app-action-dispatchController-context-plugin',
+        4 => 'weee-app-action-dispatchController-context-plugin',
+        5 => 'invalidate_expired_session_plugin',
+        6 => 'customer-app-action-executeController-context-plugin',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Action_dispatch___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'catalog_app_action_dispatch_controller_context_plugin',
+        1 => 'contextPlugin',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Onepage_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+        3 => 'tax-app-action-dispatchController-context-plugin',
+        4 => 'weee-app-action-dispatchController-context-plugin',
+        5 => 'invalidate_expired_session_plugin',
+        6 => 'customer-app-action-executeController-context-plugin',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Onepage_dispatch___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'catalog_app_action_dispatch_controller_context_plugin',
+        1 => 'contextPlugin',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index_execute___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'storeCheck',
+        1 => 'designLoader',
+        2 => 'customerNotification',
+        3 => 'tax-app-action-dispatchController-context-plugin',
+        4 => 'weee-app-action-dispatchController-context-plugin',
+        5 => 'invalidate_expired_session_plugin',
+        6 => 'sdk_url_configuration',
+        7 => 'customer-app-action-executeController-context-plugin',
+      ),
+      2 => 'disable-guest_checkout',
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index_dispatch___self' => 
+    array (
+      1 => 
+      array (
+        0 => 'catalog_app_action_dispatch_controller_context_plugin',
+        1 => 'contextPlugin',
+      ),
+    ),
+    'Magento\\Checkout\\Controller\\Index\\Index_execute_disable-guest_checkout' => 
+    array (
+      1 => 
+      array (
+        0 => 'multishipping_disabler',
+      ),
+    ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor_process___self' => 
     array (
       4 => 
@@ -13334,71 +13438,6 @@
         0 => 'catalog_app_action_dispatch_controller_context_plugin',
         1 => 'contextPlugin',
         2 => 'multishipping_clear_addresses',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Action_execute___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
-        3 => 'tax-app-action-dispatchController-context-plugin',
-        4 => 'weee-app-action-dispatchController-context-plugin',
-        5 => 'invalidate_expired_session_plugin',
-        6 => 'customer-app-action-executeController-context-plugin',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Action_dispatch___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'catalog_app_action_dispatch_controller_context_plugin',
-        1 => 'contextPlugin',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Onepage_execute___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
-        3 => 'tax-app-action-dispatchController-context-plugin',
-        4 => 'weee-app-action-dispatchController-context-plugin',
-        5 => 'invalidate_expired_session_plugin',
-        6 => 'customer-app-action-executeController-context-plugin',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Onepage_dispatch___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'catalog_app_action_dispatch_controller_context_plugin',
-        1 => 'contextPlugin',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index_execute___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
-        3 => 'tax-app-action-dispatchController-context-plugin',
-        4 => 'weee-app-action-dispatchController-context-plugin',
-        5 => 'invalidate_expired_session_plugin',
-        6 => 'sdk_url_configuration',
-        7 => 'customer-app-action-executeController-context-plugin',
-        8 => 'multishipping_disabler',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index_dispatch___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'catalog_app_action_dispatch_controller_context_plugin',
-        1 => 'contextPlugin',
       ),
     ),
     'Magento\\Checkout\\Model\\Cart_save___self' => 
