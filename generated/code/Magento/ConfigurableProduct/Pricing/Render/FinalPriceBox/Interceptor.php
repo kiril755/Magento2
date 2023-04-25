@@ -22,4 +22,13 @@ class Interceptor extends \Magento\ConfigurableProduct\Pricing\Render\FinalPrice
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getCacheKey');
         return $pluginInfo ? $this->___callPlugins('getCacheKey', func_get_args(), $pluginInfo) : parent::getCacheKey();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toHtml()
+    {
+        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'toHtml');
+        return $pluginInfo ? $this->___callPlugins('toHtml', func_get_args(), $pluginInfo) : parent::toHtml();
+    }
 }

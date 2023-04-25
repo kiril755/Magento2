@@ -8,7 +8,7 @@ use Magento\Customer\Model\Session;
 
 class HideProductInfoForGuest
 {
-    private $customerSession;
+    protected $customerSession;
 
     public function __construct(
         Session $customerSession
@@ -17,22 +17,19 @@ class HideProductInfoForGuest
     }
     public function aroundIsSalable(Product $product, \Closure $proceed)
     {
-        if ($this->customerSession->isLoggedIn()) {
-            // Customer is logged in, so we don't need to modify the behavior
-            return $proceed();
-        } else {
-            // Customer is a guest, so we need to hide the price and add to cart button
-            return false;
-        }
+        return false;
+//        if ($this->customerSession->isLoggedIn()) {
+//            return $proceed();
+//        } else {
+//            return false;
+//        }
     }
 
     public function aroundGetPrice(Product $product, \Closure $proceed)
     {
         if ($this->customerSession->isLoggedIn()) {
-            // Customer is logged in, so we don't need to modify the behavior
             return $proceed();
         } else {
-            // Customer is a guest, so we need to hide the price
             return null;
         }
     }

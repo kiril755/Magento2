@@ -441,7 +441,7 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\Swatches\\Model\\Plugin\\Product',
       ),
-      'hide-product-info-for-guest' => 
+      'HideProductInfoForGuest' => 
       array (
         'sortOrder' => 10,
         'disabled' => false,
@@ -2924,13 +2924,13 @@
         'instance' => 'Task\\InterceptUsernameValue\\Plugin\\CreatePostPlugin',
       ),
     ),
-    'Magento\\Checkout\\Controller\\Index\\Index' => 
+    'Magento\\Catalog\\Pricing\\Render\\FinalPriceBox' => 
     array (
-      'disable-guest_checkout' => 
+      'price_hide' => 
       array (
-        'sortOrder' => 10,
+        'sortOrder' => 20,
         'disabled' => false,
-        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HidePriceForUser',
       ),
     ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
@@ -3769,7 +3769,7 @@
         'sortOrder' => 0,
         'instance' => 'Magento\\CatalogRule\\Plugin\\Indexer\\Product\\Save\\ApplyRulesAfterReindex',
       ),
-      'hide-product-info-for-guest' => 
+      'HideProductInfoForGuest' => 
       array (
         'sortOrder' => 10,
         'disabled' => false,
@@ -7007,64 +7007,15 @@
         'instance' => 'Task\\InterceptUsernameValue\\Plugin\\CreatePostPlugin',
       ),
     ),
-    'Magento\\Checkout\\Controller\\Action' => 
+    'Magento\\Framework\\Pricing\\Render\\PriceBoxRenderInterface' => NULL,
+    'Magento\\Framework\\Pricing\\Render\\PriceBox' => NULL,
+    'Magento\\Catalog\\Pricing\\Render\\FinalPriceBox' => 
     array (
-      'storeCheck' => 
+      'price_hide' => 
       array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Onepage' => 
-    array (
-      'storeCheck' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index' => 
-    array (
-      'storeCheck' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Store\\App\\Action\\Plugin\\StoreCheck',
-      ),
-      'designLoader' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Theme\\Plugin\\LoadDesignPlugin',
-      ),
-      'customerNotification' => 
-      array (
-        'sortOrder' => 0,
-        'instance' => 'Magento\\Customer\\Model\\Plugin\\CustomerNotification',
-      ),
-      'disable-guest_checkout' => 
-      array (
-        'sortOrder' => 10,
+        'sortOrder' => 20,
         'disabled' => false,
-        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\DisableGuestCheckout',
+        'instance' => 'Task\\PriceVisibilityRestriction\\Plugin\\HidePriceForUser',
       ),
     ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor' => 
@@ -7814,11 +7765,11 @@
     ),
     'Magento\\Catalog\\Model\\Product_isSalable___self' => 
     array (
-      2 => 'hide-product-info-for-guest',
+      2 => 'HideProductInfoForGuest',
     ),
     'Magento\\Catalog\\Model\\Product_getPrice___self' => 
     array (
-      2 => 'hide-product-info-for-guest',
+      2 => 'HideProductInfoForGuest',
     ),
     'Magento\\Cms\\Api\\PageRepositoryInterface_save___self' => 
     array (
@@ -10433,33 +10384,12 @@
       ),
       2 => 'task_intercept_username_value',
     ),
-    'Magento\\Checkout\\Controller\\Action_execute___self' => 
+    'Magento\\Catalog\\Pricing\\Render\\FinalPriceBox_toHtml___self' => 
     array (
-      1 => 
+      4 => 
       array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
+        0 => 'price_hide',
       ),
-    ),
-    'Magento\\Checkout\\Controller\\Onepage_execute___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
-      ),
-    ),
-    'Magento\\Checkout\\Controller\\Index\\Index_execute___self' => 
-    array (
-      1 => 
-      array (
-        0 => 'storeCheck',
-        1 => 'designLoader',
-        2 => 'customerNotification',
-      ),
-      2 => 'disable-guest_checkout',
     ),
     'Magento\\Checkout\\Block\\Checkout\\LayoutProcessor_process___self' => 
     array (
