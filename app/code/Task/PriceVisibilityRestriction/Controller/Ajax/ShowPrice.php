@@ -1,44 +1,67 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Task\PriceVisibilityRestriction\Controller\Ajax;
 
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\Event\ManagerInterface as EventManager;
+use Magento\Framework\App\RequestInterface;
 
-//use Magento\Catalog\Model\Product;
 
-
-class ShowPrice extends \Magento\Framework\App\Action\Action
+class ShowPrice implements HttpPostActionInterface
 {
-    protected $jsonFactory;
-    protected $productRepository;
-    protected $eventManager;
 
+    const EVENT_NAME = 'price_request_event_before';
+    /**
+     * @var JsonFactory
+     * @var ProductRepositoryInterface
+     * @var EventManager
+     * @var RequestInterface
+     */
+    private $jsonFactory;
+    private $productRepository;
+    private $eventManager;
+    private $_request;
 
+    /**
+     * @param JsonFactory $jsonFactory
+     * @param ProductRepositoryInterface $productRepository
+     * @param EventManager $eventManager
+     * @param RequestInterface $requestinterface
+     */
     public function __construct(
-        Context $context,
         JsonFactory $jsonFactory,
         ProductRepositoryInterface $productRepository,
-        EventManager $eventManager
+        EventManager $eventManager,
+        RequestInterface $requestInterface
     ) {
-        parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
         $this->productRepository = $productRepository;
         $this->eventManager = $eventManager;
+        $this->_request = $requestInterface;
     }
 
-    public function execute()
+
+    /**
+     * @return mixed
+     */
+    public function execute() : mixed
     {
-        $this->eventManager->dispatch('price_request_event_before');
-
-        $productId = $this->getRequest()->getParam('product_id');
-
-        $product = $this->productRepository->getById($productId);
-        $price = $product->getFinalPrice();
+        $this->eventManager->dispatch(__(self::EVENT_NAME));
 
         $response = $this->jsonFactory->create();
-        $response->setData(['price' => $price, 'product_id' => $productId, 'product' => $product]);
-        return $response;
+        try {
+            $productId = $this->_request->getParam('product_id');
+
+            $product = $this->productRepository->getById($productId);
+            $price = $product->getFinalPrice();
+
+            return $response->setData(['price' => $price]);
+        } catch (\Exception $e) {
+            return $response->setData(['error' => $e->getMessage()]);
+        }
     }
 }

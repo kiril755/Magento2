@@ -44,15 +44,6 @@ class Interceptor extends \Magento\CatalogImportExport\Model\Import\Proxy\Produc
     /**
      * {@inheritdoc}
      */
-    public function isSalable()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isSalable');
-        return $pluginInfo ? $this->___callPlugins('isSalable', func_get_args(), $pluginInfo) : parent::isSalable();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getIdentities()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdentities');

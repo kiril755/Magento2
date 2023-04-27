@@ -1,9 +1,18 @@
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Catalog\Model\Product">
-        <plugin name="HideProductInfoForGuest" type="Task\PriceVisibilityRestriction\Plugin\HideProductInfoForGuest" sortOrder="10" disabled="false" />
+        <plugin name="HideProductInfoForGuest" type="Task\PriceVisibilityRestriction\Plugin\HideProductInfoForGuest"
+                sortOrder="10" disabled="false"/>
     </type>
-<type name="Magento\Catalog\Pricing\Render\FinalPriceBox">
-    <plugin name="price_hide" type="Task\PriceVisibilityRestriction\Plugin\HidePriceForUser" sortOrder="20" disabled="false"/>
-</type>
+    <type name="Magento\Catalog\Pricing\Render\FinalPriceBox">
+        <plugin name="price_hide" type="Task\PriceVisibilityRestriction\Plugin\HidePriceForUser" sortOrder="20"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="request_grid_data_source" xsi:type="string">Task\PriceVisibilityRestriction\Model\ResourceModel\UserRequest\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-
+        <referenceBlock name="product.info.addtocart.additional" remove="true" />
         <referenceContainer name="content">
-            <block class="Task\PriceVisibilityRestriction\Block\ShowPriceButton" name="show.price.button" template="Task_PriceVisibilityRestriction::show_price_button.phtml"/>
+            <block name="show.price.button" template="Task_PriceVisibilityRestriction::show_price_button.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Task\PriceVisibilityRestriction\ViewModel\ShowPriceButton</argument>
+                </arguments>
+            </block>
         </referenceContainer>
-        <move element="show.price.button" destination="product.info.main" after="product.info.price" />
+        <move element="show.price.button" destination="product.info.main" after="product.info.price"/>
     </body>
-
 </page>

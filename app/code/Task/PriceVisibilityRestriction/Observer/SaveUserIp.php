@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Task\PriceVisibilityRestriction\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
@@ -9,10 +12,20 @@ use Task\PriceVisibilityRestriction\Model\UserRequestFactory;
 
 class SaveUserIp implements ObserverInterface
 {
-    protected $request;
-    protected $customerSession;
-    protected $userIpFactory;
+    /**
+     * @var RequestInterface
+     * @var Session
+     * @var UserRequestFactory
+     */
+    private $request;
+    private $customerSession;
+    private $userIpFactory;
 
+    /**
+     * @param RequestInterface $request
+     * @param Session $customerSession
+     * @param UserRequestFactory $userIpFactory
+     */
     public function __construct(
         RequestInterface $request,
         Session $customerSession,
@@ -23,24 +36,24 @@ class SaveUserIp implements ObserverInterface
         $this->userIpFactory = $userIpFactory;
     }
 
-    public function execute(EventObserver $observer)
+    /**
+     * @param EventObserver $observer
+     * @return void
+     */
+    public function execute(EventObserver $observer) : void
     {
-        $ipAddress = $this->request->getClientIp();
-
-        if ($this->customerSession->isLoggedIn()) {
-            $customer = $this->customerSession->getCustomerDataObject();
-            $firstname = $customer->getFirstname();
-
-            $userIp = $this->userIpFactory->create();
-            $userIp->setLogin($firstname)
-                ->setIpAddress($ipAddress)
-                ->save();
-        } else {
-
-            $userIp = $this->userIpFactory->create();
-            $userIp->setLogin('guest')
-                ->setIpAddress($ipAddress)
-                ->save();
+        if (!($observer instanceof EventObserver)) {
+            return;
         }
+
+        $ipAddress = $this->request->getClientIp();
+        $firstname = $this->customerSession->isLoggedIn()
+            ? $this->customerSession->getCustomerDataObject()->getFirstname()
+            : 'guest';
+
+        $userIp = $this->userIpFactory->create();
+        $userIp->setLogin($firstname)
+            ->setIpAddress($ipAddress)
+            ->save();
     }
 }

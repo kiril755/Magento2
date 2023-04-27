@@ -8,27 +8,18 @@ class Interceptor extends \Comment\CommentProductModule\Controller\Adminhtml\Edi
 {
     use \Magento\Framework\Interception\Interceptor;
 
-    public function __construct(\Magento\Backend\App\Action\Context $context, \Magento\Framework\Controller\Result\JsonFactory $jsonFactory)
+    public function __construct(\Magento\Framework\Controller\Result\JsonFactory $jsonFactory, \Magento\Framework\App\RequestInterface $request, \Comment\CommentProductModule\Model\CommentFactory $commentFactory)
     {
         $this->___init();
-        parent::__construct($context, $jsonFactory);
+        parent::__construct($jsonFactory, $request, $commentFactory);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function execute()
+    public function execute() : mixed
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'execute');
         return $pluginInfo ? $this->___callPlugins('execute', func_get_args(), $pluginInfo) : parent::execute();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function dispatch(\Magento\Framework\App\RequestInterface $request)
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'dispatch');
-        return $pluginInfo ? $this->___callPlugins('dispatch', func_get_args(), $pluginInfo) : parent::dispatch($request);
     }
 }

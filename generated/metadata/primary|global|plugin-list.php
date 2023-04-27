@@ -8551,10 +8551,6 @@
         0 => 'exclude_swatch_attribute',
       ),
     ),
-    'Magento\\Catalog\\Model\\Product_isSalable___self' => 
-    array (
-      2 => 'HideProductInfoForGuest',
-    ),
     'Magento\\Catalog\\Model\\Product_getPrice___self' => 
     array (
       2 => 'HideProductInfoForGuest',

@@ -1,33 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Task\PriceVisibilityRestriction\Controller\Guest;
 
-use \Magento\Framework\App\Action\Action;
-use \Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ActionInterface;
 use Magento\Customer\Model\Session;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Event\ManagerInterface as EventManager;
+use Magento\Framework\Controller\Result\RedirectFactory;
 
-class Redirect extends Action
+class Redirect implements ActionInterface
 {
-    protected $customerSession;
-    protected $eventManager;
+    const EVENT_NAME = 'price_request_event_before';
+    const PATH = 'customer/account/login';
+    /**
+     * @var Session
+     * @var EventManager
+     * @var RedirectFactory
+     */
+    private $customerSession;
+    private $eventManager;
+    private $redirectFactory;
 
-    public function __construct(Context $context, Session $customerSession, EventManager $eventManager)
+    /**
+     * @param Session $customerSession
+     * @param EventManager $eventManager
+     * @param RedirectFactory $redirectFactory
+     */
+    public function __construct(
+        Session $customerSession,
+        EventManager $eventManager,
+        RedirectFactory $redirectFactory
+    )
     {
-        parent::__construct($context);
         $this->customerSession = $customerSession;
         $this->eventManager = $eventManager;
+        $this->redirectFactory = $redirectFactory;
     }
 
-    public function execute()
+    /**
+     * @return mixed
+     */
+    public function execute() : mixed
     {
         if (!$this->customerSession->isLoggedIn()) {
-            $this->eventManager->dispatch('price_request_event_before');
-            return $this->resultRedirectFactory->create()->setPath('customer/account/login');
-        } else {
-            return $this->resultRedirectFactory->create()->setPath('');
+            $this->eventManager->dispatch(__(self::EVENT_NAME));
+            return $this->redirectFactory->create()->setPath(__(self::PATH));
         }
+        return $this->redirectFactory->create()->setPath('');
     }
 
 }

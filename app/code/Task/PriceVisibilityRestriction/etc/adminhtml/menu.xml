@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Task_PriceVisibilityRestriction::request" title="User price request"
+             module="Task_PriceVisibilityRestriction"
+             sortOrder="10"
+             resource="Task_PriceVisibilityRestriction::request"/>
+        <add id="Task_PriceVisibilityRestriction::request_all"
+             title="All users price request"
+             module="Task_PriceVisibilityRestriction"
+             sortOrder="1"
+             action="request"
+             resource="Task_PriceVisibilityRestriction::request_all"
+             parent="Task_PriceVisibilityRestriction::request"
+        />
+    </menu>
+</config>

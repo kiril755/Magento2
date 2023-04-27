@@ -1,46 +1,21 @@
 <?php
-/** @var \Task\PriceVisibilityRestriction\Block\ShowPriceButton $block */
+/**@var $viewModel Task\PriceVisibilityRestriction\ViewModel\ShowPriceButton */
+$viewModel = $block->getViewModel();;
 ?>
-<?php
-if ($block->isUserGuest()):
-    ?>
-
-    <button id="show-price-button" type="button" class="show-price-btn"
-            data-product-id="<?php echo $block->getCurrentProduct(); ?>">
-        <?php echo $block->escapeHtml($block->getButtonText()); ?>
+    <button id="show-price-button" type="button"
+            class="<?php echo $block->escapeHtml($viewModel->setBtnClass()); ?>"
+            data-product-id="<?php echo $viewModel->getCurrentProduct(); ?>"
+            <?php if ($viewModel->isUserGuest()): ?>
+                onclick="location.href = '<?php echo $block->getUrl('price_request/guest/redirect'); ?>'"
+            <?php endif; ?>
+    >
+            <?php echo $block->escapeHtml('Show price') ?>
     </button>
-    <script>
-        console.log('before')
-        require(['jquery'], function ($) {
-            $(document).on('click', '.show-price-btn', function () {
-                var productId = $(this).data('product-id');
-                console.log(productId)
-                console.log('hello')
-                $.ajax({
-                    url: '/price_request/ajax/showprice',
-                    type: 'POST',
-                    dataType: 'json',
-                    delay: 100,
-                    params: {
-                        contentType: 'application/json; charset=utf-8'
-                    },
-                    data: {
-                        product_id: productId
-                    },
-                    success: function (response) {
-                        console.log(response)
-                        $('.product-info-main .product-info-price').text('$' + response.price);
-                        // $('.product-info-main .add-to-cart-buttons').show();
-                        $('.show-price-btn').hide();
-                    }
-                });
-            });
-        });
-        console.log('after')
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Task_PriceVisibilityRestriction/js/show-price" : {
+            }
+        }
+    }
     </script>
-
-<?php else: ?>
-    <button id="show-price-button" type="button" class="show-price-btn-guest" onclick="location.href = '<?php echo $block->getUrl('price_request/guest/redirect'); ?>'">
-        <?php echo $block->escapeHtml($block->getButtonText()); ?>
-    </button>
-<?php endif; ?>

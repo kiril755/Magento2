@@ -1,24 +1,35 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Task\PriceVisibilityRestriction\Plugin;
 
+use Magento\Customer\Model\Session;
+use Magento\Catalog\Pricing\Render\FinalPriceBox;
+
 class HidePriceForUser
 {
-    protected $_customerSession;
+    /**
+     * @var Session
+     */
+    private $_customerSession;
 
+    /**
+     * @param Session $session
+     */
     public function __construct(
-        \Magento\Customer\Model\Session $session
+        Session $session
     ) {
         $this->_customerSession = $session;
     }
 
-    function afterToHtml(\Magento\Catalog\Pricing\Render\FinalPriceBox $subject, $result)
+    /**
+     * @param FinalPriceBox $subject
+     * @param string $result
+     * @return string|null
+     */
+    function afterToHtml(FinalPriceBox $subject, string $result) : ?string
     {
-        if (!$this->_customerSession->isLoggedIn()) {
-            return $result;
-        } else {
-            return '';
-        }
+        return !$this->_customerSession->isLoggedIn() ? $result : null;
     }
 }

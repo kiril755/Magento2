@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Task\PriceVisibilityRestriction\Plugin;
 
@@ -8,29 +9,27 @@ use Magento\Customer\Model\Session;
 
 class HideProductInfoForGuest
 {
-    protected $customerSession;
+    /**
+     * @var Session
+     */
+    private $customerSession;
 
+    /**
+     * @param Session $customerSession
+     */
     public function __construct(
         Session $customerSession
     ) {
         $this->customerSession = $customerSession;
     }
-    public function aroundIsSalable(Product $product, \Closure $proceed)
-    {
-        return false;
-//        if ($this->customerSession->isLoggedIn()) {
-//            return $proceed();
-//        } else {
-//            return false;
-//        }
-    }
 
-    public function aroundGetPrice(Product $product, \Closure $proceed)
+    /**
+     * @param Product $product
+     * @param Callable $proceed
+     * @return mixed
+     */
+    public function aroundGetPrice(Product $product, Callable $proceed) : mixed
     {
-        if ($this->customerSession->isLoggedIn()) {
-            return $proceed();
-        } else {
-            return null;
-        }
+        return $this->customerSession->isLoggedIn() ? $proceed() : null;
     }
 }

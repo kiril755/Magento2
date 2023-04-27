@@ -44,15 +44,6 @@ class Interceptor extends \Magento\Catalog\Model\Product implements \Magento\Fra
     /**
      * {@inheritdoc}
      */
-    public function isSalable()
-    {
-        $pluginInfo = $this->pluginList->getNext($this->subjectType, 'isSalable');
-        return $pluginInfo ? $this->___callPlugins('isSalable', func_get_args(), $pluginInfo) : parent::isSalable();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getIdentities()
     {
         $pluginInfo = $this->pluginList->getNext($this->subjectType, 'getIdentities');
