@@ -30,6 +30,6 @@ class HidePriceForUser
      */
     function afterToHtml(FinalPriceBox $subject, string $result) : ?string
     {
-        return !$this->_customerSession->isLoggedIn() ? $result : null;
+        return $this->_customerSession->isLoggedIn() ? null : $result;
     }
 }

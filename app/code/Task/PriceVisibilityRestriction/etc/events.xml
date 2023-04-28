@@ -3,4 +3,10 @@
     <event name="price_request_event_before">
         <observer name="saveUserIp" instance="Task\PriceVisibilityRestriction\Observer\SaveUserIp"/>
     </event>
+    <event name="success_edit_log">
+        <observer name="logSuccessEdit" instance="Task\PriceVisibilityRestriction\Observer\SuccessLog"/>
+    </event>
+    <event name="error_edit_log">
+        <observer name="logErrorEdit" instance="Task\PriceVisibilityRestriction\Observer\ErrorLog"/>
+    </event>
 </config>

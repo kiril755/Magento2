@@ -25,11 +25,11 @@ class HideProductInfoForGuest
 
     /**
      * @param Product $product
-     * @param Callable $proceed
+     * @param mixed $result
      * @return mixed
      */
-    public function aroundGetPrice(Product $product, Callable $proceed) : mixed
+    public function afterGetPrice(Product $product, $result) : mixed
     {
-        return $this->customerSession->isLoggedIn() ? $proceed() : null;
+        return $this->customerSession->isLoggedIn() ? $result : null;
     }
 }

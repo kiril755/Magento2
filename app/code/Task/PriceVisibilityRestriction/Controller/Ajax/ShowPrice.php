@@ -6,6 +6,7 @@ namespace Task\PriceVisibilityRestriction\Controller\Ajax;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\Event\ManagerInterface as EventManager;
 use Magento\Framework\App\RequestInterface;
@@ -46,9 +47,9 @@ class ShowPrice implements HttpPostActionInterface
 
 
     /**
-     * @return mixed
+     * @return Json
      */
-    public function execute() : mixed
+    public function execute() : Json
     {
         $this->eventManager->dispatch(__(self::EVENT_NAME));
 

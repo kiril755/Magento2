@@ -39,15 +39,16 @@ class Redirect implements ActionInterface
     }
 
     /**
-     * @return mixed
+     * @return \Magento\Framework\Controller\Result\Redirect
      */
-    public function execute() : mixed
+    public function execute() : \Magento\Framework\Controller\Result\Redirect
     {
+        $path = '';
         if (!$this->customerSession->isLoggedIn()) {
             $this->eventManager->dispatch(__(self::EVENT_NAME));
-            return $this->redirectFactory->create()->setPath(__(self::PATH));
+            $path = self::PATH;
         }
-        return $this->redirectFactory->create()->setPath('');
+        return $this->redirectFactory->create()->setPath($path);
     }
 
 }

@@ -4,9 +4,9 @@
     <body>
         <referenceBlock name="product.info.addtocart.additional" remove="true" />
         <referenceContainer name="content">
-            <block name="show.price.button" template="Task_PriceVisibilityRestriction::show_price_button.phtml">
+            <block class="Task\PriceVisibilityRestriction\Block\ShowPriceButton" name="show.price.button" template="Task_PriceVisibilityRestriction::show_price_button.phtml" >
                 <arguments>
-                    <argument name="view_model" xsi:type="object">Task\PriceVisibilityRestriction\ViewModel\ShowPriceButton</argument>
+                    <argument name="view_model" xsi:type="object">Task\PriceVisibilityRestriction\ViewModel\CurrentProduct</argument>
                 </arguments>
             </block>
         </referenceContainer>

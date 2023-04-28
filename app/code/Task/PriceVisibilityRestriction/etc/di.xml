@@ -11,7 +11,47 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="request_grid_data_source" xsi:type="string">Task\PriceVisibilityRestriction\Model\ResourceModel\UserRequest\Grid\Collection</item>
+                <item name="request_grid_data_source" xsi:type="string">
+                    Task\PriceVisibilityRestriction\Model\ResourceModel\UserRequest\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Task\PriceVisibilityRestriction\Logger\SuccessHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <virtualType name="Task\PriceVisibilityRestriction\Logger\SuccessLogger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">myCustomSuccessLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Task\PriceVisibilityRestriction\Logger\SuccessHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Task\PriceVisibilityRestriction\Observer\SuccessLog">
+        <arguments>
+            <argument name="logger" xsi:type="object">Task\PriceVisibilityRestriction\Logger\SuccessLogger
+            </argument>
+        </arguments>
+    </type>
+    <type name="Task\PriceVisibilityRestriction\Logger\ErrorHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <virtualType name="Task\PriceVisibilityRestriction\Logger\ErrorLogger" type="Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">myCustomErrorLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Task\PriceVisibilityRestriction\Logger\ErrorHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Task\PriceVisibilityRestriction\Observer\ErrorLog">
+        <arguments>
+            <argument name="logger" xsi:type="object">Task\PriceVisibilityRestriction\Logger\ErrorLogger
             </argument>
         </arguments>
     </type>
