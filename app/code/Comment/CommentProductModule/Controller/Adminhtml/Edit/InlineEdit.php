@@ -1,56 +1,59 @@
 <?php
+declare(strict_types=1);
+
 namespace Comment\CommentProductModule\Controller\Adminhtml\Edit;
 
-use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\App\RequestInterface;
+use Comment\CommentProductModule\Model\CommentFactory;
 
-class InlineEdit extends Action
+class InlineEdit implements HttpPostActionInterface
 {
     /**
      * @var JsonFactory
+     * @var RequestInterface
+     * @var CommentFactory
      */
-    protected $jsonFactory;
+    private $jsonFactory;
+    private $_request;
+    private $commentFactory;
     /**
-     * @param Context     $context
      * @param JsonFactory $jsonFactory
+     * @param RequestInterface $request
+     * @param CommentFactory $commentFactory
      */
     public function __construct(
-        Context $context,
-        JsonFactory $jsonFactory
+        JsonFactory $jsonFactory,
+        RequestInterface $request,
+        CommentFactory $commentFactory
     ) {
-        parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
+        $this->_request = $request;
+        $this->commentFactory = $commentFactory;
     }
     /**
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return mixed
      */
-    public function execute()
+    public function execute() : mixed
     {
-        /**
-         * @var \Magento\Framework\Controller\Result\Json $resultJson
-         */
         $resultJson = $this->jsonFactory->create();
         $error = false;
         $messages = [];
 
-        if ($this->getRequest()->getParam('isAjax')) {
-            $postItems = $this->getRequest()->getParam('items', []);
-            if (!count($postItems)) {
-                $messages[] = __('Please correct the data sent.');
-                $error = true;
-            } else {
-                foreach (array_keys($postItems) as $entityId) {
-                    $model = $this->_objectManager->create('Task\AdminManageComment\Model\item')->load($entityId);
-                    try {
-                        $model->setData(array_merge($model->getData(), $postItems[$entityId]));
-                        $model->save();
-                    } catch (\Exception $e) {
-                        $messages[] = "[Error:]  {$e->getMessage()}";
-                        $error = true;
-                    }
+        if ($this->_request->getParam('isAjax')) {
+            $postItems = $this->_request->getParam('items', []);
+            foreach (array_keys($postItems) as $entityId) {
+                $model = $this->commentFactory->create()->load($entityId);
+                try {
+                    $model->setData(array_merge($model->getData(), $postItems[$entityId]));
+                    $model->save();
+                } catch (\Exception $e) {
+                    $messages[] = "[Error:]  {$e->getMessage()}";
+                    $error = true;
                 }
             }
+
         }
         return $resultJson->setData(
             [

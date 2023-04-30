@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="user_requests_for_price" engine="innodb" comment="User requests for prices">
+        <column xsi:type="int" name="id" identity="true" unsigned="true" nullable="false" comment="ID"/>
+        <column xsi:type="varchar" name="login" nullable="true" length="255" comment="Login"/>
+        <column xsi:type="varchar" name="ip_address" nullable="false" length="50" comment="IP address"/>
+        <column xsi:type="timestamp" name="create_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Create time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

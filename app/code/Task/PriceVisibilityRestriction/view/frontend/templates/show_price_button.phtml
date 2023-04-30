@@ -1,0 +1,24 @@
+<?php
+/** @var \Task\PriceVisibilityRestriction\Block\ShowPriceButton $block */
+/** @var Task\PriceVisibilityRestriction\ViewModel\CurrentProduct $viewModel */
+$viewModel = $block->getViewModel();
+?>
+    <button id="show-price-button" type="button"
+            class="<?php echo $block->escapeHtml($block->setBtnClass()); ?>"
+            data-product-id="<?php echo $viewModel->getCurrentProduct(); ?>"
+            <?php if ($block->isUserGuest()): ?>
+                onclick="location.href = '<?php echo $block->getUrl('price_request/guest/redirect'); ?>'"
+            <?php endif; ?>
+    >
+            <?php echo $block->escapeHtml('Show price') ?>
+    </button>
+    <script type="text/x-magento-init">
+    {
+        "#show-price-button": {
+            "Task_PriceVisibilityRestriction/js/show-price" : {
+                "productId": "<?php echo $viewModel->getCurrentProduct(); ?>",
+                "currency": "<?php echo $viewModel->getCurrency(); ?>"
+            }
+        }
+    }
+    </script>
