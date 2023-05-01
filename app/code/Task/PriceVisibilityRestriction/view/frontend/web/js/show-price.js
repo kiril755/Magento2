@@ -4,6 +4,7 @@ define(['jquery','domReady!'], function ($) {
         $(element).on('click', function () {
             const url = '/price_request/ajax/showprice';
             const priceDiv = $('<div>').addClass('price');
+            $(element).attr('disabled', true);
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -19,7 +20,8 @@ define(['jquery','domReady!'], function ($) {
                     console.log(response)
                     if (response.price) {
                         $('.product-info-stock-sku').before(priceDiv.text(config.currency + parseFloat(response.price).toFixed(2)));
-                        // $('.product-info-main .product-info-price').text(config.currency + response.price);
+                        $('.product-options-bottom').show();
+                        $('.box-tocart').show();
                         $(element).hide();
                     } else {
                         console.log(response.error);
