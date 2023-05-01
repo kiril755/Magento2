@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Task_PriceVisibilityRestriction::css/price.css" />
+    </head>
     <body>
+        <referenceBlock name="product.info.addtocart" remove="true" />
         <referenceBlock name="product.info.addtocart.additional" remove="true" />
         <referenceContainer name="content">
             <block class="Task\PriceVisibilityRestriction\Block\ShowPriceButton" name="show.price.button" template="Task_PriceVisibilityRestriction::show_price_button.phtml" >
