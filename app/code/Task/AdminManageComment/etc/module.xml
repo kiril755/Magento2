@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Task_AdminManageComment" setup_version="1.0.0">
-        <sequence>
-            <module name="Task_ProductCommentModule"/>
-            <module name="Task_AdvancedCommentManagement"/>
-        </sequence>
-    </module>
-</config>

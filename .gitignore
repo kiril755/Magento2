@@ -71,3 +71,8 @@ atlassian*
 generated/*
 !/generated/.htaccess
 .DS_Store
+
+app/code/Mastering/*
+app/code/Task/AdminManageComment/*
+app/code/Task/AdvancedCommentManagement/*
+app/code/Task/InterceptUsernameValue/*

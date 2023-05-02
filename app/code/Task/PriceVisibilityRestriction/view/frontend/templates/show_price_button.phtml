@@ -19,6 +19,9 @@ $viewModel = $block->getViewModel();
                 "productId": "<?php echo $viewModel->getCurrentProduct(); ?>",
                 "currency": "<?php echo $viewModel->getCurrency(); ?>"
             }
+        },
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
         }
     }
     </script>
